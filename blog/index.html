@@ -6,21 +6,6 @@
 <title>Blog — Nonnanest | Insights for Parents</title>
 <meta name="description" content="Insights on baby wellness, nursery comfort, and the technology behind the only contactless skin temperature baby monitor. From the Nonnanest team.">
 
-<!-- Organization Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Nonnanest",
-  "url": "https://www.nonnanest.com",
-  "logo": "https://nonnanest.com/logo.png",
-  "foundingDate": "2024",
-  "foundingLocation": { "@type": "Place", "name": "Charleston, South Carolina" },
-  "description": "Nonnanest is the only baby monitor that senses skin temperature without touching your baby. Contactless infrared wellness insights. No WiFi. No wearables. No subscriptions.",
-  "slogan": "Peace of Mind, Made Simple."
-}
-</script>
-
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -89,65 +74,16 @@ nav {
 }
 .nav-cta:hover { background: var(--soft-teal) !important; transform: translateY(-1px); }
 
-/* Hamburger menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 8px;
-  z-index: 200;
-}
-.hamburger span {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background: var(--charcoal);
-  border-radius: 2px;
-  transition: all 0.3s ease;
-}
+/* HAMBURGER */
+.hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+.hamburger span { display: block; width: 22px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: all 0.3s; }
 .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .hamburger.active span:nth-child(2) { opacity: 0; }
 .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
-
-.mobile-nav {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 150;
-  background: rgba(250, 248, 245, 0.98);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 0;
-}
+.mobile-nav { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 99; background: rgba(250, 248, 245, 0.97); backdrop-filter: blur(30px); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
 .mobile-nav.open { display: flex; }
-.mobile-nav a {
-  font-family: 'Fraunces', serif;
-  font-size: 28px;
-  font-weight: 400;
-  color: var(--charcoal);
-  padding: 16px 0;
-  transition: color 0.2s;
-  letter-spacing: -0.5px;
-}
-.mobile-nav a:hover { color: var(--deep-teal); }
-.mobile-nav .mobile-nav-cta {
-  margin-top: 24px;
-  font-family: 'Outfit', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--warm-white);
-  background: var(--deep-teal);
-  padding: 16px 40px;
-  border-radius: 12px;
-  transition: all 0.25s;
-}
-.mobile-nav .mobile-nav-cta:hover { background: var(--soft-teal); }
+.mobile-nav a { font-family: 'Fraunces', serif; font-size: 28px; font-weight: 300; color: var(--charcoal); }
+.mobile-nav .mobile-cta { font-family: 'Outfit', sans-serif; font-size: 16px; font-weight: 500; background: var(--deep-teal); color: var(--warm-white); padding: 14px 40px; border-radius: 10px; }
 
 
 /* ===== PAGE HEADER ===== */
@@ -211,6 +147,8 @@ nav {
   border-radius: 20px;
   overflow: hidden;
   transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card:hover {
@@ -226,6 +164,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .blog-card-image img {
@@ -256,6 +195,9 @@ nav {
 
 .blog-card-body {
   padding: 28px 24px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .blog-card-meta {
@@ -291,6 +233,7 @@ nav {
   color: var(--earth);
   line-height: 1.6;
   margin-bottom: 16px;
+  flex: 1;
 }
 
 .blog-card-link {
@@ -310,51 +253,6 @@ nav {
 .blog-card-link svg {
   width: 14px;
   height: 14px;
-}
-
-
-/* ===== PLACEHOLDER STATE ===== */
-.blog-empty {
-  grid-column: 1 / -1;
-  background: var(--cream);
-  border: 1px dashed var(--warm-sand);
-  border-radius: 20px;
-  padding: 80px 40px;
-  text-align: center;
-}
-
-.blog-empty-icon {
-  width: 56px;
-  height: 56px;
-  background: var(--teal-mist);
-  border: 1px solid var(--pale-aqua);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 20px;
-}
-
-.blog-empty-icon svg {
-  width: 26px;
-  height: 26px;
-  color: var(--deep-teal);
-}
-
-.blog-empty h2 {
-  font-family: 'Fraunces', serif;
-  font-size: 24px;
-  font-weight: 400;
-  color: var(--charcoal);
-  margin-bottom: 12px;
-}
-
-.blog-empty p {
-  font-size: 15px;
-  color: var(--bark);
-  max-width: 420px;
-  margin: 0 auto;
-  line-height: 1.6;
 }
 
 
@@ -450,7 +348,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-sand); margin-bottom: 20px; }
 .footer-col a { display: block; font-size: 14px; color: var(--clay); margin-bottom: 12px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--pale-aqua); }
-.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.08); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
 .footer-bottom p { font-size: 12px; color: var(--warm-gray); }
 .footer-bottom-links { display: flex; gap: 24px; }
 .footer-bottom-links a { font-size: 12px; color: var(--warm-gray); transition: color 0.2s; }
@@ -485,32 +383,25 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 <!-- ===== NAV ===== -->
 <nav>
   <a href="/" class="wordmark">Nonnanest</a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/#how-it-works">How It Works</a></li>
-    <li><a href="/#features">Why Nonnanest</a></li>
-    <li><a href="/#faq">FAQ</a></li>
-    <li><a href="/#pricing" class="nav-cta">Get Yours — $329</a></li>
-  </ul>
-  <button class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileNav').classList.toggle('open');" aria-label="Toggle menu">
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/#faq">FAQ</a>
+    <a href="/shop" class="nav-cta">Pre-order — $329</a>
+  </div>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileNav').classList.toggle('open');" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <div class="mobile-nav" id="mobileNav">
   <a href="/" onclick="closeMobileNav()">Home</a>
-  <a href="/#how-it-works" onclick="closeMobileNav()">How It Works</a>
-  <a href="/#features" onclick="closeMobileNav()">Why Nonnanest</a>
+  <a href="/blog" onclick="closeMobileNav()">Blog</a>
+  <a href="/shop" onclick="closeMobileNav()">Shop</a>
   <a href="/#faq" onclick="closeMobileNav()">FAQ</a>
-  <a href="/#pricing" class="mobile-nav-cta" onclick="closeMobileNav()">Get Yours — $329</a>
+  <a href="/shop" class="mobile-cta" onclick="closeMobileNav()">Pre-order — $329</a>
 </div>
-
-<script>
-function closeMobileNav() {
-  document.getElementById('mobileNav').classList.remove('open');
-  document.querySelector('.hamburger').classList.remove('active');
-}
-</script>
+<script>function closeMobileNav(){document.getElementById('mobileNav').classList.remove('open');document.querySelector('.hamburger').classList.remove('active');}</script>
 
 
 <!-- ===== PAGE HEADER ===== -->
@@ -525,91 +416,47 @@ function closeMobileNav() {
 <section class="blog-section">
   <div class="blog-grid">
 
-    <!-- ========================================
-         PLACEHOLDER STATE — Remove this block 
-         and uncomment the sample cards below 
-         when you publish your first post.
-         ======================================== -->
-    <div class="blog-empty">
-      <div class="blog-empty-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+    <!-- POST 1 — Contact-Free Baby Monitors -->
+    <a href="/blog/contact-free-baby-monitors-why-skin-temperature-matters/" class="blog-card">
+      <div class="blog-card-image">
+        <!-- Replace with featured image when available -->
+        <div class="blog-card-image-placeholder">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v1m0 16v1m8.66-13.66l-.71.71M4.05 19.95l-.71.71M21 12h-1M4 12H3m16.66 7.66l-.71-.71M4.05 4.05l-.71-.71"/><circle cx="12" cy="12" r="4"/></svg>
+          <span>Wellness</span>
+        </div>
       </div>
-      <h2>Our first posts are on the way</h2>
-      <p>We're writing about the things parents actually wonder about — skin temperature, nursery comfort, and the "why" behind how we built Nonnanest. Sign up below to be the first to know.</p>
-    </div>
+      <div class="blog-card-body">
+        <div class="blog-card-meta">
+          <span class="tag">Wellness Insights</span>
+          Jan 2025 · 6 min
+        </div>
+        <h2>Contact-Free Baby Monitors: Why Skin Temperature Matters for Your Baby's Comfort</h2>
+        <p>How infrared sensors track skin temperature from a distance — no wearables, no contact, no disruption to sleep. What to look for and why it matters.</p>
+        <span class="blog-card-link">
+          Read more
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </span>
+      </div>
+    </a>
 
 
     <!-- ========================================
-         SAMPLE BLOG CARDS — Uncomment these when 
-         you have posts ready. Duplicate and edit 
-         for each new post.
+         TEMPLATE — Duplicate this block for each
+         new post. Update href, image, meta, h2,
+         and description.
          ========================================
 
-    <a href="/blog/why-contactless-matters.html" class="blog-card">
+    <a href="/blog/your-post-slug/" class="blog-card">
       <div class="blog-card-image">
-        <img src="/images/blog/why-contactless.jpg" alt="Baby sleeping peacefully in crib">
+        <img src="/images/blog/your-image.jpg" alt="Descriptive alt text">
       </div>
       <div class="blog-card-body">
         <div class="blog-card-meta">
-          <span class="tag">Wellness</span>
-          March 2026
+          <span class="tag">Category</span>
+          Month YYYY · X min
         </div>
-        <h2>Why contactless matters: the case for not putting anything on your baby</h2>
-        <p>Every monitor that tracks skin temperature requires a wearable. We built the only one that doesn't. Here's why that matters.</p>
-        <span class="blog-card-link">
-          Read more
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </div>
-    </a>
-
-    <a href="/blog/skin-temp-vs-body-temp.html" class="blog-card">
-      <div class="blog-card-image">
-        <img src="/images/blog/skin-temp.jpg" alt="Parent checking on sleeping baby">
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-meta">
-          <span class="tag">Education</span>
-          March 2026
-        </div>
-        <h2>Skin temperature vs. body temperature: what parents should know</h2>
-        <p>They're not the same thing — and understanding the difference helps you make better sense of what your monitor is telling you.</p>
-        <span class="blog-card-link">
-          Read more
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </div>
-    </a>
-
-    <a href="/blog/wifi-baby-monitor-security.html" class="blog-card">
-      <div class="blog-card-image">
-        <img src="/images/blog/wifi-security.jpg" alt="Nursery with baby monitor">
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-meta">
-          <span class="tag">Privacy</span>
-          April 2026
-        </div>
-        <h2>Why we built a baby monitor that doesn't use WiFi</h2>
-        <p>After headlines about hacked baby monitors, we asked: what if the nursery just stayed offline? Here's how FHSS encryption works.</p>
-        <span class="blog-card-link">
-          Read more
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </span>
-      </div>
-    </a>
-
-    <a href="/blog/nursery-temperature-guide.html" class="blog-card">
-      <div class="blog-card-image">
-        <img src="/images/blog/nursery-temp.jpg" alt="Comfortable nursery setup">
-      </div>
-      <div class="blog-card-body">
-        <div class="blog-card-meta">
-          <span class="tag">Comfort</span>
-          April 2026
-        </div>
-        <h2>The ideal nursery temperature: what pediatricians recommend</h2>
-        <p>68–72°F is the range. But what happens outside it — and how room climate affects your baby's skin temperature readings.</p>
+        <h2>Your Post Title Here</h2>
+        <p>A brief description of the post content, 1-2 sentences.</p>
         <span class="blog-card-link">
           Read more
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -645,11 +492,17 @@ function closeMobileNav() {
       <p>The only baby monitor that senses skin temperature without touching your baby. Calm, connection, and confidence — through technology that protects privacy and empowers peace of mind.</p>
     </div>
     <div class="footer-col">
-      <h4>Product</h4>
+      <h4>Shop</h4>
+      <a href="/shop">Baby Monitor</a>
       <a href="/#how-it-works">How It Works</a>
       <a href="/#features">Features</a>
-      <a href="/#story">Our Story</a>
-      <a href="/#pricing">Pricing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="/quickstart">Quick Start Guide</a>
+      <a href="/#faq">FAQ</a>
+      <a href="/shipping">Shipping</a>
+      <a href="/returns">Returns</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
@@ -658,17 +511,10 @@ function closeMobileNav() {
       <a href="/press">Press</a>
       <a href="mailto:hello@nonnanest.com">Contact</a>
     </div>
-    <div class="footer-col">
-      <h4>Support</h4>
-      <a href="/#faq">FAQ</a>
-      <a href="/support">Help Center</a>
-      <a href="/returns">Returns</a>
-      <a href="/shipping">Shipping</a>
-    </div>
   </div>
 
   <div class="footer-bottom">
-    <p>© 2026 Nonnanest. All rights reserved. Designed in Charleston, SC.</p>
+    <p>© 2026 Nonnanest, Inc. All rights reserved. Designed in Charleston, SC.</p>
     <div class="footer-bottom-links">
       <a href="/privacy-policy">Privacy Policy</a>
       <a href="/terms">Terms of Service</a>
