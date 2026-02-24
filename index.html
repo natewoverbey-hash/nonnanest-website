@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nonnanest — The Only Contactless Baby Monitor with Skin Temperature Monitoring | No Wearables, No WiFi</title>
+<title>Nonnanest — The Only Contactless Baby Monitor with Skin Temperature Insights | No Wearables, No WiFi</title>
 <meta name="description" content="Nonnanest is the only baby monitor that senses skin temperature without touching your baby. No wearables, no WiFi, no subscriptions. Contactless infrared wellness insights. $329 one-time.">
 
 <!-- JSON-LD Product Schema -->
@@ -614,7 +614,8 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
   .hero { grid-template-columns: 1fr; padding: 140px 24px 60px; gap: 48px; }
   .hero h1 { font-size: 36px; }
   .hero-visual { order: -1; }
-  .product-showcase { max-width: 400px; }
+  .product-showcase { max-width: 400px; margin: 0 auto; }
+  .product-hero-img { border-radius: 20px; }
   .float-badge { display: none; }
   .how-grid { grid-template-columns: 1fr; }
   .feature-row, .feature-row.reverse { grid-template-columns: 1fr; gap: 40px; }
@@ -626,21 +627,27 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
   .section h2 { font-size: 32px; }
   nav { padding: 16px 24px; }
   .hero-proof { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .trust-bar-inner { gap: 24px; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+  .trust-bar { padding: 28px 24px; }
+  .trust-bar-inner { flex-direction: column; gap: 16px; align-items: flex-start; }
   .diff-compare { grid-template-columns: 1fr; gap: 20px; }
   .diff-vs { display: none; }
+  .diff-banner { padding: 60px 24px; }
   .diff-banner h2 { font-size: 28px; }
+  .disclaimer-toast { right: 16px; bottom: 16px; left: 16px; max-width: none; width: auto; }
 }
 
 @media (max-width: 600px) {
-  .hero h1 { font-size: 30px; }
+  .hero h1 { font-size: 28px; }
+  .hero-subtitle { font-size: 16px; }
   .nav-links { display: none; }
   .pricing-card { padding: 40px 24px; }
   .pricing-amount { font-size: 48px; }
   .footer-grid { grid-template-columns: 1fr; }
-  .comparison-table { font-size: 12px; }
-  .comparison-table th, .comparison-table td { padding: 12px 10px; }
-  .disclaimer-modal { padding: 36px 24px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .testimonial-card { padding: 28px 20px; }
+  .testimonial-card blockquote { font-size: 16px; }
+  .founder-text blockquote { font-size: 20px; }
 }
 </style>
 </head>
@@ -731,7 +738,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 <!-- ===== DIFFERENTIATOR: NOTHING ON YOUR BABY ===== -->
 <div class="diff-banner">
   <div class="diff-banner-inner">
-    <h2>Every other monitor that tracks skin temperature <em>requires a wearable</em></h2>
+    <h2>Every other monitor that tracks wellness insights <em>requires a wearable</em></h2>
     <p>Some use socks. Others use ankle bands. They all require something strapped to your baby — plus WiFi, an app, and a subscription. Nonnanest is the only monitor that senses skin temperature contactlessly. Nothing on your baby, ever.</p>
 
     <div class="diff-compare">
@@ -752,7 +759,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
         </div>
         <h3>Nothing on your baby</h3>
-        <p>Contactless infrared senses skin temp from above the crib. No WiFi, no app required, no subscriptions.</p>
+        <p>Contactless infrared sensors read skin temp from above the crib. No WiFi, no app required, no subscriptions.</p>
       </div>
     </div>
   </div>
@@ -798,7 +805,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"/><path d="M12 6v6l4 2"/></svg>
       </div>
       <h3>Infrared sensors do the rest</h3>
-      <p>From directly above, contactless infrared sensors reads your baby's skin temperature continuously — up to 4 feet away. No socks, no straps, no disruption to their sleep.</p>
+      <p>From directly above, contactless infrared reads your baby's skin temperature continuously — up to 4 feet away. No socks, no straps, no disruption to their sleep.</p>
     </div>
 
     <div class="how-card">
@@ -940,7 +947,6 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
   <div class="section" style="padding-top:0;padding-bottom:0;">
     <div class="founder-grid">
       <div class="founder-photo">
-          <img src="images/Ellis_Reed_Founder_Story.jpg" alt="Nathan, founder of Nonnanest" style="width:100%;height:100%;object-fit:cover;border-radius:24px;">
         <span class="founder-photo-label">Nathan · Founder</span>
       </div>
       <div class="founder-text">
