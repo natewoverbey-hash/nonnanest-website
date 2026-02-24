@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nonnanest — The Only Contactless Baby Monitor with Skin Temperature Insights | No Wearables, No WiFi</title>
+<title>Nonnanest — The Only Contactless Baby Temperature Monitor | No Wearables, No WiFi</title>
 <meta name="description" content="Nonnanest is the only baby monitor that senses skin temperature without touching your baby. No wearables, no WiFi, no subscriptions. Contactless infrared wellness insights. $329 one-time.">
 
 <!-- JSON-LD Product Schema -->
@@ -232,6 +232,67 @@ nav {
   padding: 10px 24px; border-radius: 8px; transition: all 0.25s;
 }
 .nav-cta:hover { background: var(--soft-teal) !important; transform: translateY(-1px); }
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+/* Mobile overlay nav */
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 150;
+  background: rgba(250, 248, 245, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--charcoal);
+  padding: 16px 0;
+  transition: color 0.2s;
+  letter-spacing: -0.5px;
+}
+.mobile-nav a:hover { color: var(--deep-teal); }
+.mobile-nav .mobile-nav-cta {
+  margin-top: 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--warm-white);
+  background: var(--deep-teal);
+  padding: 16px 40px;
+  border-radius: 12px;
+  transition: all 0.25s;
+}
+.mobile-nav .mobile-nav-cta:hover { background: var(--soft-teal); }
 
 /* ===== HERO ===== */
 .hero {
@@ -641,6 +702,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
   .hero h1 { font-size: 28px; }
   .hero-subtitle { font-size: 16px; }
   .nav-links { display: none; }
+  .hamburger { display: flex; }
   .pricing-card { padding: 40px 24px; }
   .pricing-amount { font-size: 48px; }
   .footer-grid { grid-template-columns: 1fr; }
@@ -676,7 +738,26 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
     <li><a href="#faq">FAQ</a></li>
     <li><a href="#pricing" class="nav-cta">Get Yours — $329</a></li>
   </ul>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileNav').classList.toggle('open');" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Nav Overlay -->
+<div class="mobile-nav" id="mobileNav">
+  <a href="#how-it-works" onclick="closeMobileNav()">How It Works</a>
+  <a href="#features" onclick="closeMobileNav()">Why Nonnanest</a>
+  <a href="#story" onclick="closeMobileNav()">Our Story</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="#pricing" class="mobile-nav-cta" onclick="closeMobileNav()">Get Yours — $329</a>
+</div>
+
+<script>
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+}
+</script>
 
 
 <!-- ===== HERO ===== -->
@@ -738,7 +819,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 <!-- ===== DIFFERENTIATOR: NOTHING ON YOUR BABY ===== -->
 <div class="diff-banner">
   <div class="diff-banner-inner">
-    <h2>Every other monitor that tracks wellness insights <em>requires a wearable</em></h2>
+    <h2>Every other monitor that tracks skin temperature <em>requires a wearable</em></h2>
     <p>Some use socks. Others use ankle bands. They all require something strapped to your baby — plus WiFi, an app, and a subscription. Nonnanest is the only monitor that senses skin temperature contactlessly. Nothing on your baby, ever.</p>
 
     <div class="diff-compare">
@@ -759,7 +840,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
         </div>
         <h3>Nothing on your baby</h3>
-        <p>Contactless infrared sensors read skin temp from above the crib. No WiFi, no app required, no subscriptions.</p>
+        <p>Contactless infrared senses skin temp from above the crib. No WiFi, no app required, no subscriptions.</p>
       </div>
     </div>
   </div>
@@ -1037,7 +1118,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
       <div class="faq-answer">
-        <p>Nonnanest provides skin temperature awareness within ±1°F accuracy when mounted directly above the crib in ambient room temperatures between 68°F and 77°F. For optimal infant sleep and safety, we recommend following pediatrician guidance of maintaining the nursery between 68°F and 72°F. It tracks skin temperature trends continuously — giving you awareness of comfort shifts before they'd otherwise be obvious.</p>
+        <p>Nonnanest provides skin temperature awareness within ±1°F when mounted directly above the crib in pediatrician-recommended room temperatures (68–72°F). It tracks skin temperature trends continuously — giving you awareness of comfort shifts before they'd otherwise be obvious.</p>
       </div>
     </div>
 
@@ -1116,6 +1197,12 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
     Nonnanest is not a medical device. It is not intended to monitor vital signs or to diagnose, treat, prevent, or cure any disease or health condition. Nonnanest is designed solely to provide parents with general information and awareness about their baby's comfort and environment. For any health concerns, always consult a pediatrician or qualified healthcare provider.
   </div>
 </footer>
+
+<script>
+// Force scroll to top on page load
+if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+window.addEventListener('load', function() { window.scrollTo(0, 0); });
+</script>
 
 </body>
 </html>
