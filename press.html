@@ -4,7 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Press — Nonnanest | The Only Contactless Baby Temperature Monitor</title>
-<meta name="description" content="Nonnanest press room. Media resources, press releases, and contact information for the only baby monitor that senses skin temperature without touching your baby.">
+<meta name="description" content="Nonnanest press room. Media resources, press releases, and contact information for the only baby monitor that senses skin temperature without touching your baby. No wearables, no WiFi, no subscriptions.">
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nonnanest",
+  "url": "https://www.nonnanest.com",
+  "logo": "https://nonnanest.com/logo.png",
+  "foundingDate": "2024",
+  "foundingLocation": { "@type": "Place", "name": "Charleston, South Carolina" },
+  "description": "Nonnanest is the only baby monitor that senses skin temperature without touching your baby. Contactless infrared wellness insights. No WiFi. No wearables. No subscriptions.",
+  "slogan": "Peace of Mind, Made Simple."
+}
+</script>
 
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 
@@ -73,6 +88,66 @@ nav {
   padding: 10px 24px; border-radius: 8px; transition: all 0.25s;
 }
 .nav-cta:hover { background: var(--soft-teal) !important; transform: translateY(-1px); }
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 150;
+  background: rgba(250, 248, 245, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--charcoal);
+  padding: 16px 0;
+  transition: color 0.2s;
+  letter-spacing: -0.5px;
+}
+.mobile-nav a:hover { color: var(--deep-teal); }
+.mobile-nav .mobile-nav-cta {
+  margin-top: 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--warm-white);
+  background: var(--deep-teal);
+  padding: 16px 40px;
+  border-radius: 12px;
+  transition: all 0.25s;
+}
+.mobile-nav .mobile-nav-cta:hover { background: var(--soft-teal); }
 
 
 /* ===== PAGE HEADER ===== */
@@ -379,6 +454,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 @media (max-width: 600px) {
   .page-header h1 { font-size: 28px; }
   .nav-links { display: none; }
+  .hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr; }
   .boilerplate { padding: 28px 20px; }
 }
@@ -397,14 +473,32 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
     <li><a href="/#faq">FAQ</a></li>
     <li><a href="/#pricing" class="nav-cta">Get Yours — $329</a></li>
   </ul>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileNav').classList.toggle('open');" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="/" onclick="closeMobileNav()">Home</a>
+  <a href="/#how-it-works" onclick="closeMobileNav()">How It Works</a>
+  <a href="/#features" onclick="closeMobileNav()">Why Nonnanest</a>
+  <a href="/#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="/#pricing" class="mobile-nav-cta" onclick="closeMobileNav()">Get Yours — $329</a>
+</div>
+
+<script>
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+}
+</script>
 
 
 <!-- ===== PAGE HEADER ===== -->
 <section class="page-header">
   <div class="section-label">Press</div>
   <h1>Nonnanest in <em>the news</em></h1>
-  <p>Media resources, press releases, and brand information for the only baby monitor that senses skin temperature without touching your baby.</p>
+  <p>Media resources, press releases, and brand information for the only baby monitor that senses skin temperature without touching your baby. No wearables, no WiFi, no subscriptions.</p>
 </section>
 
 
@@ -412,7 +506,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 <div class="section" style="padding-top:0;">
   <div class="boilerplate">
     <h2>About Nonnanest</h2>
-    <p>Nonnanest is the only baby monitor that uses contactless infrared sensing to read a baby's skin temperature — without wearables, WiFi, or subscriptions. Founded in Charleston, South Carolina, Nonnanest was built by a parent who saw a gap in the market: every monitor that tracked wellness insights required something strapped to the baby. Nonnanest closes that gap with patent-pending technology that gives parents continuous comfort awareness through a dedicated handheld display, fully offline and private by design. The Nonnanest monitor is available for $329 as a one-time purchase with all features included.</p>
+    <p>Nonnanest is the only baby monitor that senses skin temperature without touching your baby — no wearables, no WiFi, no subscriptions. Founded in Charleston, South Carolina, Nonnanest was born in a nursery, not a boardroom — by a parent who realized the market didn't need another camera, it needed awareness. Every other monitor that tracks wellness insights requires a wearable. Nonnanest closes that gap with patent-pending contactless infrared technology that gives parents continuous comfort awareness through a dedicated 5" HD handheld display, fully offline and private by design. The Nonnanest monitor is available for $329 as a one-time purchase with all features included.</p>
   </div>
 </div>
 
