@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quick Start Guide — Nonnanest</title>
+<meta name="description" content="Set up your Nonnanest baby monitor in 5 minutes. Step-by-step guide for mounting, pairing, and configuring your contactless skin temperature monitor.">
+
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --soft-teal: #559092;
+  --deep-teal: #3D6B6D;
+  --pale-aqua: #C8E3DF;
+  --teal-mist: #E4EFEE;
+  --soft-sage: #7FA8A0;
+  --warm-white: #FAF8F5;
+  --cream: #F5F0EA;
+  --linen: #EDE7DF;
+  --warm-sand: #D4CCC2;
+  --clay: #B8A99A;
+  --charcoal: #2C2520;
+  --earth: #5C4F43;
+  --bark: #8C7B6B;
+  --warm-gray: #6B6560;
+  --alert-red: #C45B4A;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+  color: var(--earth);
+  background: var(--warm-white);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+::selection { background: var(--pale-aqua); color: var(--charcoal); }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.wordmark {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--charcoal);
+}
+
+/* ===== NAV (simplified for QR landing) ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(250, 248, 245, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(237, 231, 223, 0.6);
+}
+.nav-help {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--deep-teal);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.nav-help svg { width: 16px; height: 16px; }
+
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+  padding: 100px 24px 40px;
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.page-header .welcome-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--teal-mist);
+  border: 1px solid var(--pale-aqua);
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--deep-teal);
+  margin-bottom: 24px;
+}
+
+.welcome-badge svg { width: 14px; height: 14px; }
+
+.page-header h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  color: var(--charcoal);
+  margin-bottom: 12px;
+}
+
+.page-header h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--soft-teal);
+}
+
+.page-header p {
+  font-size: 16px;
+  color: var(--earth);
+  line-height: 1.65;
+}
+
+.time-estimate {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--bark);
+  font-weight: 400;
+}
+
+.time-estimate svg { width: 14px; height: 14px; color: var(--soft-teal); }
+
+
+/* ===== WHAT'S IN THE BOX ===== */
+.box-section {
+  padding: 40px 24px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.box-card {
+  background: var(--cream);
+  border: 1px solid var(--linen);
+  border-radius: 20px;
+  padding: 32px 24px;
+}
+
+.box-card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 20px;
+  letter-spacing: -0.3px;
+}
+
+.box-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.box-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--warm-white);
+  border: 1px solid var(--linen);
+  border-radius: 12px;
+}
+
+.box-item-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--teal-mist);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.box-item-icon svg { width: 18px; height: 18px; color: var(--deep-teal); }
+
+.box-item span {
+  font-size: 13px;
+  color: var(--charcoal);
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+
+/* ===== STEPS ===== */
+.steps-section {
+  padding: 20px 24px 60px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.step {
+  position: relative;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--linen);
+}
+
+.step:last-child { border-bottom: none; }
+
+.step-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.step-number {
+  width: 40px;
+  height: 40px;
+  background: var(--deep-teal);
+  color: var(--warm-white);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  font-weight: 400;
+  flex-shrink: 0;
+}
+
+.step-title {
+  font-family: 'Fraunces', serif;
+  font-size: 21px;
+  font-weight: 400;
+  color: var(--charcoal);
+  letter-spacing: -0.3px;
+  line-height: 1.25;
+  padding-top: 6px;
+}
+
+.step-body {
+  padding-left: 56px;
+}
+
+.step-body p {
+  font-size: 15px;
+  color: var(--earth);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.step-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: var(--teal-mist);
+  border: 1px solid var(--pale-aqua);
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.step-tip svg {
+  width: 16px;
+  height: 16px;
+  color: var(--deep-teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-tip span {
+  font-size: 13px;
+  color: var(--deep-teal);
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.step-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px 16px;
+  background: #FDF6F4;
+  border: 1px solid #F0DAD5;
+  border-radius: 12px;
+  margin-top: 12px;
+}
+
+.step-warning svg {
+  width: 16px;
+  height: 16px;
+  color: var(--alert-red);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.step-warning span {
+  font-size: 13px;
+  color: #7A3D33;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+
+/* ===== MOUNT OPTIONS ===== */
+.mount-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.mount-card {
+  background: var(--cream);
+  border: 1px solid var(--linen);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.mount-card-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--teal-mist);
+  border: 1px solid var(--pale-aqua);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+}
+
+.mount-card-icon svg { width: 20px; height: 20px; color: var(--deep-teal); }
+
+.mount-card h4 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+
+.mount-card p {
+  font-size: 12px;
+  color: var(--bark);
+  line-height: 1.45;
+  margin-bottom: 0;
+}
+
+
+/* ===== DISPLAY GUIDE ===== */
+.display-guide {
+  background: var(--charcoal);
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin-top: 16px;
+}
+
+.display-bar {
+  background: var(--deep-teal);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.display-temps {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.display-temp {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.display-temp svg { width: 16px; height: 16px; color: var(--pale-aqua); }
+
+.display-temp span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  color: var(--warm-white);
+  font-weight: 400;
+}
+
+.display-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.display-icons svg { width: 14px; height: 14px; color: var(--pale-aqua); opacity: 0.7; }
+.display-icons img { width: 16px; height: 16px; opacity: 0.7; filter: brightness(0) invert(0.85) sepia(0.2) hue-rotate(130deg); }
+
+.display-temp img { width: 18px; height: 18px; filter: brightness(0) invert(0.85) sepia(0.2) hue-rotate(130deg); }
+
+.display-legend-item img { width: 16px; height: 16px; flex-shrink: 0; filter: brightness(0) invert(0.85) sepia(0.2) hue-rotate(130deg); }
+
+/* Distance settings */
+.distance-table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+
+.distance-table th {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--soft-teal);
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--linen);
+  font-weight: 400;
+}
+
+.distance-table td {
+  font-size: 14px;
+  color: var(--earth);
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--linen);
+}
+
+.distance-table tr:last-child td { border-bottom: none; }
+
+.distance-table .default-row { background: var(--teal-mist); border-radius: 8px; }
+.distance-table .default-row td { color: var(--deep-teal); font-weight: 500; }
+
+.default-badge {
+  display: inline-block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: var(--deep-teal);
+  color: var(--warm-white);
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.display-legend {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.display-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 8px;
+}
+
+.display-legend-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+.display-legend-item span {
+  font-size: 11px;
+  color: var(--clay);
+  line-height: 1.3;
+}
+
+
+/* ===== YOU'RE ALL SET ===== */
+.done-section {
+  padding: 20px 24px 60px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.done-card {
+  background: var(--deep-teal);
+  border-radius: 20px;
+  padding: 40px 24px;
+  text-align: center;
+}
+
+.done-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.done-icon svg { width: 28px; height: 28px; color: var(--warm-white); }
+
+.done-card h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--warm-white);
+  margin-bottom: 12px;
+}
+
+.done-card p {
+  font-size: 15px;
+  color: var(--pale-aqua);
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.done-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.done-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s;
+}
+
+.done-link.primary {
+  background: var(--warm-white);
+  color: var(--deep-teal);
+}
+
+.done-link.primary:hover { background: var(--cream); transform: translateY(-1px); }
+
+.done-link.secondary {
+  background: rgba(255,255,255,0.1);
+  color: var(--warm-white);
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+.done-link.secondary:hover { background: rgba(255,255,255,0.15); }
+
+.done-link svg { width: 16px; height: 16px; }
+
+
+/* ===== NEED HELP ===== */
+.help-section {
+  padding: 0 24px 60px;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.help-card {
+  background: var(--cream);
+  border: 1px solid var(--linen);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.help-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 8px;
+}
+
+.help-card p {
+  font-size: 14px;
+  color: var(--bark);
+  margin-bottom: 20px;
+}
+
+.help-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: var(--warm-white);
+  border: 1px solid var(--linen);
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--deep-teal);
+  transition: all 0.25s;
+}
+
+.help-link:hover { border-color: var(--soft-teal); transform: translateY(-1px); }
+.help-link svg { width: 16px; height: 16px; }
+
+
+/* ===== FOOTER (minimal) ===== */
+.qs-footer {
+  padding: 32px 24px;
+  text-align: center;
+  border-top: 1px solid var(--linen);
+}
+
+.qs-footer p {
+  font-size: 12px;
+  color: var(--bark);
+  margin-bottom: 8px;
+}
+
+.qs-footer .disclaimer {
+  font-size: 11px;
+  color: var(--warm-gray);
+  line-height: 1.5;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.qs-footer a {
+  color: var(--soft-teal);
+  transition: color 0.2s;
+}
+
+.qs-footer a:hover { color: var(--deep-teal); }
+
+
+/* ===== RESPONSIVE ===== */
+@media (min-width: 600px) {
+  .page-header { padding: 120px 48px 48px; }
+  .page-header h1 { font-size: 42px; }
+  .box-section, .steps-section, .done-section, .help-section { padding-left: 48px; padding-right: 48px; }
+  nav { padding: 20px 48px; }
+}
+
+@media (max-width: 400px) {
+  .box-items { grid-template-columns: 1fr; }
+  .mount-options { grid-template-columns: 1fr; }
+  .display-legend { grid-template-columns: 1fr; }
+  .display-bar { flex-direction: column; gap: 10px; align-items: flex-start; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== NAV ===== -->
+<nav>
+  <a href="/" class="wordmark">Nonnanest</a>
+  <a href="mailto:support@nonnanest.com" class="nav-help">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    Need help?
+  </a>
+</nav>
+
+
+<!-- ===== HEADER ===== -->
+<section class="page-header">
+  <div class="welcome-badge">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+    Welcome to the family
+  </div>
+  <h1>Let's get you <em>set up</em></h1>
+  <p>Your Nonnanest monitor is ready to go in just a few steps. No app to download, no account to create, no WiFi to configure.</p>
+  <div class="time-estimate">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    About 5 minutes
+  </div>
+</section>
+
+
+<!-- ===== WHAT'S IN THE BOX ===== -->
+<section class="box-section">
+  <div class="box-card">
+    <h2>What's in the box</h2>
+    <div class="box-items">
+      <div class="box-item">
+        <div class="box-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg>
+        </div>
+        <span>Infrared HD Camera</span>
+      </div>
+      <div class="box-item">
+        <div class="box-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12" y2="18"/></svg>
+        </div>
+        <span>5" HD Parent Display</span>
+      </div>
+      <div class="box-item">
+        <div class="box-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+        </div>
+        <span>Flexible Crib Mount</span>
+      </div>
+      <div class="box-item">
+        <div class="box-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+        </div>
+        <span>Wall Mount Bracket</span>
+      </div>
+      <div class="box-item">
+        <div class="box-item-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+        </div>
+        <span>Power Cable + Adaptor</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SETUP STEPS ===== -->
+<section class="steps-section">
+
+  <!-- STEP 1 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-number">1</div>
+      <div class="step-title">Choose your mount</div>
+    </div>
+    <div class="step-body">
+      <p>Both mounting options are included. Pick the one that fits your nursery now — you can always switch later as your baby grows.</p>
+
+      <div class="mount-options">
+        <div class="mount-card">
+          <div class="mount-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/></svg>
+          </div>
+          <h4>Flexible Crib Mount</h4>
+          <p>Perfect for newborns. Clips on and adjusts to the ideal angle facing down.</p>
+        </div>
+        <div class="mount-card">
+          <div class="mount-card-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/></svg>
+          </div>
+          <h4>Wall Mount</h4>
+          <p>Flush and out of reach — ideal once your baby can sit or stand.</p>
+        </div>
+      </div>
+
+      <div class="step-tip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>For the most accurate skin temperature readings, mount the camera <strong>directly above the crib, facing downward</strong>. Measure the distance from the camera lens to the crib mattress surface — you'll set this in Step 5.</span>
+      </div>
+
+      <div class="step-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span><strong>Pediatric guidance:</strong> Cameras and cords should be at least 3 feet (1 meter) from the crib mattress surface. Always keep all cables secured and out of baby's reach.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-number">2</div>
+      <div class="step-title">Plug in the camera</div>
+    </div>
+    <div class="step-body">
+      <p>Connect the power cable to the camera and plug the adaptor into a wall outlet. Route the cable safely out of baby's reach. The camera's status light will turn on briefly, then go dark — by design, there are no visible LEDs during use.</p>
+
+      <div class="step-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span><strong>Safety:</strong> Always keep power cables out of baby's reach and secured against the wall or crib frame.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-number">3</div>
+      <div class="step-title">Turn on the parent display</div>
+    </div>
+    <div class="step-body">
+      <p>Press and hold the power button on top of the handheld display. It will power on and automatically begin searching for your camera. The camera and display pair automatically over FHSS — no WiFi, no app, no configuration needed.</p>
+
+      <div class="step-tip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>The camera and display are pre-paired at the factory. If you ever need to re-pair, hold the pairing button on both devices simultaneously for 5 seconds.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-number">4</div>
+      <div class="step-title">Get to know your display</div>
+    </div>
+    <div class="step-body">
+      <p>Once paired, you'll see a live video feed with temperature readings along the top. Here's what you're looking at:</p>
+
+      <div class="display-guide">
+        <div class="display-bar">
+          <div class="display-temps">
+            <div class="display-temp">
+              <img src="/images/Simple_Baby_Face_Icon.png" alt="Baby skin temp icon">
+              <span>98.6°</span>
+            </div>
+            <div class="display-temp">
+              <img src="/images/Simple_House_Icon.png" alt="Room temp icon">
+              <span>72.0°</span>
+            </div>
+          </div>
+          <div class="display-icons">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <img src="/images/Signal_Connectivity_Monitor.png" alt="Signal strength">
+            <img src="/images/Battery_baby_monitor.png" alt="Battery level">
+          </div>
+        </div>
+
+        <div class="display-legend">
+          <div class="display-legend-item">
+            <img src="/images/Simple_Baby_Face_Icon.png" alt="Baby icon">
+            <span>Baby's skin temp</span>
+          </div>
+          <div class="display-legend-item">
+            <img src="/images/Simple_House_Icon.png" alt="House icon">
+            <span>Room temperature</span>
+          </div>
+          <div class="display-legend-item">
+            <img src="/images/Signal_Connectivity_Monitor.png" alt="Signal icon">
+            <span>Camera signal</span>
+          </div>
+          <div class="display-legend-item">
+            <img src="/images/Battery_baby_monitor.png" alt="Battery icon">
+            <span>Battery status</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step-tip" style="margin-top:16px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>Temperature is set to °F by default. This is a one-time setting — once set, it stays.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-number">5</div>
+      <div class="step-title">Set your distance</div>
+    </div>
+    <div class="step-body">
+      <p>For accurate skin temperature readings, set the distance to match how far the camera is from the crib mattress. Go to the settings menu on the display and select the range closest to your actual measured distance.</p>
+
+      <table class="distance-table">
+        <thead>
+          <tr>
+            <th>Setting</th>
+            <th>Metric</th>
+            <th>Imperial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Close</td>
+            <td>60 – 80 cm</td>
+            <td>2.0 – 2.6 ft</td>
+          </tr>
+          <tr>
+            <td>Near</td>
+            <td>80 – 120 cm</td>
+            <td>2.6 – 3.9 ft</td>
+          </tr>
+          <tr class="default-row">
+            <td>Standard <span class="default-badge">Default</span></td>
+            <td>100 – 120 cm</td>
+            <td>3.3 – 3.9 ft</td>
+          </tr>
+          <tr>
+            <td>Far</td>
+            <td>120 – 150 cm</td>
+            <td>3.9 – 4.9 ft</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="step-tip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span><strong>How to measure:</strong> Use a tape measure from the camera lens straight down to the mattress surface. Choose the setting that contains your measurement. The more accurate the match, the more reliable your readings.</span>
+      </div>
+
+      <div class="step-warning">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        <span>Remember: Pediatric guidelines recommend a minimum of 3 feet (1 meter) between camera and crib mattress. The "Standard" default setting is already calibrated for this safe range.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEP 6 -->
+  <div class="step">
+    <div class="step-header">
+      <div class="step-number">6</div>
+      <div class="step-title">Customize your settings</div>
+    </div>
+    <div class="step-body">
+      <p>Use the buttons on the right side of the display to adjust your preferences. You can set volume levels, choose from built-in lullabies, enable two-way audio, and configure sound-activated screen wake so the display turns on when your baby stirs.</p>
+
+      <div class="step-tip">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        <span>The display will gently alert you when skin temperature patterns shift — no need to configure alert thresholds manually.</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- ===== YOU'RE ALL SET ===== -->
+<section class="done-section">
+  <div class="done-card">
+    <div class="done-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>You're all set</h2>
+    <p>Nonnanest is watching over your little one. No WiFi to worry about, no app to check, no wearable to reposition. Just peace of mind, made simple.</p>
+    <div class="done-links">
+      <a href="/" class="done-link primary">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+        Visit nonnanest.com
+      </a>
+      <a href="/#faq" class="done-link secondary">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Read the FAQ
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== NEED HELP ===== -->
+<section class="help-section">
+  <div class="help-card">
+    <h3>Need a hand?</h3>
+    <p>We're real people and we respond quickly. Reach out anytime.</p>
+    <a href="mailto:support@nonnanest.com" class="help-link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      support@nonnanest.com
+    </a>
+  </div>
+</section>
+
+
+<!-- ===== FOOTER ===== -->
+<div class="qs-footer">
+  <p>© 2026 Nonnanest. Designed in Charleston, SC. <a href="/">nonnanest.com</a></p>
+  <p class="disclaimer">Nonnanest is a wellness device, not a medical device. It is not intended to diagnose, treat, cure, or prevent any disease or condition. Temperature readings are for informational purposes only. For any health concerns, consult a pediatrician.</p>
+</div>
+
+</body>
+</html>
