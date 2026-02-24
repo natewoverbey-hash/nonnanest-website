@@ -6,6 +6,21 @@
 <title>Blog — Nonnanest | Insights for Parents</title>
 <meta name="description" content="Insights on baby wellness, nursery comfort, and the technology behind the only contactless skin temperature baby monitor. From the Nonnanest team.">
 
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nonnanest",
+  "url": "https://www.nonnanest.com",
+  "logo": "https://nonnanest.com/logo.png",
+  "foundingDate": "2024",
+  "foundingLocation": { "@type": "Place", "name": "Charleston, South Carolina" },
+  "description": "Nonnanest is the only baby monitor that senses skin temperature without touching your baby. Contactless infrared wellness insights. No WiFi. No wearables. No subscriptions.",
+  "slogan": "Peace of Mind, Made Simple."
+}
+</script>
+
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
 
 <style>
@@ -73,6 +88,66 @@ nav {
   padding: 10px 24px; border-radius: 8px; transition: all 0.25s;
 }
 .nav-cta:hover { background: var(--soft-teal) !important; transform: translateY(-1px); }
+
+/* Hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  z-index: 200;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+.hamburger.active span:nth-child(2) { opacity: 0; }
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+.mobile-nav {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 150;
+  background: rgba(250, 248, 245, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+}
+.mobile-nav.open { display: flex; }
+.mobile-nav a {
+  font-family: 'Fraunces', serif;
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--charcoal);
+  padding: 16px 0;
+  transition: color 0.2s;
+  letter-spacing: -0.5px;
+}
+.mobile-nav a:hover { color: var(--deep-teal); }
+.mobile-nav .mobile-nav-cta {
+  margin-top: 24px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--warm-white);
+  background: var(--deep-teal);
+  padding: 16px 40px;
+  border-radius: 12px;
+  transition: all 0.25s;
+}
+.mobile-nav .mobile-nav-cta:hover { background: var(--soft-teal); }
 
 
 /* ===== PAGE HEADER ===== */
@@ -399,6 +474,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 @media (max-width: 600px) {
   .page-header h1 { font-size: 28px; }
   .nav-links { display: none; }
+  .hamburger { display: flex; }
   .footer-grid { grid-template-columns: 1fr; }
 }
 </style>
@@ -416,7 +492,25 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
     <li><a href="/#faq">FAQ</a></li>
     <li><a href="/#pricing" class="nav-cta">Get Yours — $329</a></li>
   </ul>
+  <button class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileNav').classList.toggle('open');" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="/" onclick="closeMobileNav()">Home</a>
+  <a href="/#how-it-works" onclick="closeMobileNav()">How It Works</a>
+  <a href="/#features" onclick="closeMobileNav()">Why Nonnanest</a>
+  <a href="/#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="/#pricing" class="mobile-nav-cta" onclick="closeMobileNav()">Get Yours — $329</a>
+</div>
+
+<script>
+function closeMobileNav() {
+  document.getElementById('mobileNav').classList.remove('open');
+  document.querySelector('.hamburger').classList.remove('active');
+}
+</script>
 
 
 <!-- ===== PAGE HEADER ===== -->
