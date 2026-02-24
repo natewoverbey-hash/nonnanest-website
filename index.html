@@ -14,7 +14,7 @@
   "name": "Nonnanest Baby Monitor",
   "description": "The only smart baby monitor that uses contactless infrared sensors to track your baby's skin temperature in real time — without wearables, WiFi, or worry. No socks, no ankle bands, no chest clips. Wellness insights for parents, made simple.",
   "brand": { "@type": "Brand", "name": "Nonnanest" },
-  "image": "images/Nonnanest Handheld v1.png",
+  "image": "https://nonnanest.com/product-image.jpg",
   "offers": {
     "@type": "Offer",
     "price": "329.00",
@@ -654,7 +654,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
     <span class="disclaimer-toast-title">Wellness Device Notice</span>
   </div>
   <p>Nonnanest is not a medical device. It is not intended to monitor vital signs or to diagnose, treat, prevent, or cure any disease or health condition. Nonnanest is designed solely to provide parents with general information and awareness about their baby's comfort and environment.</p>
-  <button class="disclaimer-btn" onclick="document.getElementById('disclaimerToast').classList.add('hidden')">
+  <button class="disclaimer-btn" onclick="var el=document.getElementById('disclaimerToast');el.classList.add('hidden');setTimeout(function(){el.style.display='none'},400);">
     I Understand
   </button>
 </div>
@@ -722,7 +722,7 @@ footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48p
 
   <div class="hero-visual">
     <div class="product-showcase">
-      <img src="/mnt/user-data/uploads/Nonnanest_Handheld_v1.png" alt="Nonnanest handheld parent display showing sleeping baby with real-time skin temperature reading of 98.0°F and room temperature of 75°F" class="product-hero-img">
+      <img src="images/Nonnanest Handheld v1.png" alt="Nonnanest handheld parent display showing sleeping baby with real-time skin temperature reading of 98.0°F and room temperature of 75°F" class="product-hero-img">
       <div class="float-badge top-left">
         <span class="badge-dot teal"></span>
         Contactless skin temp
