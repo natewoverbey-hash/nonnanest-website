@@ -683,6 +683,9 @@ nav {
 footer { background: var(--charcoal); color: var(--warm-sand); padding: 80px 48px 40px; }
 .footer-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 60px; }
 .footer-brand p { font-size: 14px; line-height: 1.7; color: var(--clay); margin-top: 16px; max-width: 280px; }
+.footer-social { display: flex; gap: 12px; margin-top: 16px; }
+.footer-social a { color: var(--clay); transition: color 0.2s; }
+.footer-social a:hover { color: var(--warm-white); }
 .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--warm-sand); margin-bottom: 20px; }
 .footer-col a { display: block; font-size: 14px; color: var(--clay); margin-bottom: 12px; transition: color 0.2s; }
 .footer-col a:hover { color: var(--pale-aqua); }
@@ -1213,6 +1216,14 @@ function closeMobileNav() {
     <div class="footer-brand">
       <span class="wordmark" style="color:var(--warm-white);">Nonnanest</span>
       <p>The only baby monitor that senses skin temperature without touching your baby. Calm, connection, and confidence — through technology that protects privacy and empowers peace of mind.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/nonnanest.baby/" target="_blank" rel="noopener" aria-label="Nonnanest on Instagram">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </a>
+        <a href="https://www.facebook.com/people/Nonnanest/61552680820944/" target="_blank" rel="noopener" aria-label="Nonnanest on Facebook">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        </a>
+      </div>
     </div>
     <div class="footer-col">
       <h4>Product</h4>
@@ -1251,7 +1262,4 @@ function closeMobileNav() {
 </footer>
 
 // Force scroll to top on page load
-if ('scrollRestoration' in history) {
-  histor
-</body>
-</html>
+if ('scrollRestoratio
