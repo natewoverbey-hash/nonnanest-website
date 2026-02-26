@@ -677,14 +677,15 @@
       align-items: center;
       gap: 3px;
       position: relative;
+      background: var(--soft-teal);
+      overflow: hidden;
     }
 
     .mockup-icon {
-      width: 16px;
-      height: 16px;
+      width: 18px;
+      height: 18px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.95;
+      mix-blend-mode: screen;
     }
 
     .mockup-val {
@@ -710,21 +711,19 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 36px;
-      height: 36px;
+      width: 40px;
+      height: 40px;
       border-radius: 6px;
-      background: rgba(255,255,255,0.08);
+      background: var(--deep-teal);
       position: relative;
+      overflow: hidden;
     }
 
-    .mockup-menu-item:hover { background: rgba(255,255,255,0.15); }
-
     .mockup-icon-menu {
-      width: 18px;
-      height: 18px;
+      width: 22px;
+      height: 22px;
       object-fit: contain;
-      filter: brightness(0) invert(1);
-      opacity: 0.9;
+      mix-blend-mode: screen;
     }
 
     .mockup-menu-label {
