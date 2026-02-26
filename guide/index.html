@@ -1,0 +1,1415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Guide — Nonnanest Baby Monitor</title>
+  <meta name="description" content="Complete user guide for the Nonnanest baby monitor. Setup, distance calibration, skin temperature monitoring, settings, troubleshooting, and more.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="User Guide — Nonnanest Baby Monitor">
+  <meta property="og:description" content="Complete setup and user guide for Nonnanest — the contactless skin temperature baby monitor that works without WiFi or apps.">
+  <meta property="og:image" content="https://nonnanest.com/images/Nonnanest_Handheld_v1.png">
+  <meta property="og:url" content="https://nonnanest.com/guide">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nonnanest">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="User Guide — Nonnanest Baby Monitor">
+  <meta name="twitter:description" content="Complete setup and user guide for Nonnanest — the contactless skin temperature baby monitor that works without WiFi or apps.">
+  <meta name="twitter:image" content="https://nonnanest.com/images/Nonnanest_Handheld_v1.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <!-- GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXRF2PKBGP"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-VXRF2PKBGP');
+  </script>
+
+  <!-- Meta Pixel -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1076529151218038');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1076529151218038&ev=PageView&noscript=1"/></noscript>
+
+  <!-- HubSpot -->
+  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/242981565.js"></script>
+
+  <style>
+    :root {
+      --soft-teal: #559092;
+      --deep-teal: #3D6B6D;
+      --charcoal: #2C2520;
+      --earth: #5C4F43;
+      --warm-white: #FAF8F5;
+      --cream: #F5F0EA;
+      --teal-light: #EBF4F4;
+      --teal-pale: #F0F7F7;
+      --warning-amber: #B85C00;
+      --warning-bg: #FFF8F0;
+      --danger-red: #8B2020;
+      --danger-bg: #FFF5F5;
+      --font-serif: 'Fraunces', Georgia, serif;
+      --font-sans: 'Outfit', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--warm-white);
+      color: var(--charcoal);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--warm-white);
+      border-bottom: 1px solid rgba(85,144,146,0.15);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .wordmark {
+      font-family: var(--font-serif);
+      font-weight: 500;
+      font-size: 1.25rem;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .wordmark span {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background: var(--soft-teal);
+      border-radius: 50%;
+      margin-right: 6px;
+      vertical-align: middle;
+      position: relative;
+      top: -1px;
+    }
+
+    .nav-back {
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--soft-teal);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--deep-teal); }
+    .nav-back svg { width: 16px; height: 16px; }
+
+    /* ── LAYOUT ── */
+    .guide-wrap {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      max-width: 1100px;
+      margin: 0 auto;
+      min-height: calc(100vh - 60px);
+    }
+
+    /* ── SIDEBAR ── */
+    .guide-sidebar {
+      position: sticky;
+      top: 60px;
+      height: calc(100vh - 60px);
+      overflow-y: auto;
+      padding: 2.5rem 1.5rem 2.5rem 0;
+      border-right: 1px solid rgba(85,144,146,0.12);
+    }
+
+    .guide-sidebar::-webkit-scrollbar { width: 4px; }
+    .guide-sidebar::-webkit-scrollbar-track { background: transparent; }
+    .guide-sidebar::-webkit-scrollbar-thumb { background: rgba(85,144,146,0.3); border-radius: 2px; }
+
+    .sidebar-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--earth);
+      opacity: 0.7;
+      margin-bottom: 1rem;
+      padding-left: 1rem;
+    }
+
+    .sidebar-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .sidebar-nav a {
+      display: block;
+      padding: 0.45rem 1rem;
+      font-size: 0.875rem;
+      color: var(--earth);
+      text-decoration: none;
+      border-radius: 6px;
+      transition: all 0.15s;
+      line-height: 1.4;
+    }
+    .sidebar-nav a:hover {
+      background: var(--teal-pale);
+      color: var(--deep-teal);
+    }
+    .sidebar-nav a.active {
+      background: var(--teal-light);
+      color: var(--deep-teal);
+      font-weight: 500;
+    }
+
+    .sidebar-section-divider {
+      height: 1px;
+      background: rgba(85,144,146,0.12);
+      margin: 0.75rem 1rem;
+    }
+
+    /* ── MAIN CONTENT ── */
+    .guide-main {
+      padding: 3rem 0 3rem 3rem;
+      max-width: 760px;
+    }
+
+    .guide-hero {
+      margin-bottom: 3.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(85,144,146,0.15);
+    }
+
+    .guide-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--soft-teal);
+      margin-bottom: 0.75rem;
+    }
+
+    .guide-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    .guide-hero h1 em {
+      font-style: italic;
+      color: var(--soft-teal);
+    }
+
+    .guide-hero p {
+      color: var(--earth);
+      font-size: 1.05rem;
+      max-width: 560px;
+    }
+
+    /* ── SECTIONS ── */
+    .guide-section {
+      margin-bottom: 3.5rem;
+      padding-bottom: 3.5rem;
+      border-bottom: 1px solid rgba(85,144,146,0.1);
+      scroll-margin-top: 80px;
+    }
+    .guide-section:last-of-type { border-bottom: none; }
+
+    .section-number {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      color: var(--soft-teal);
+      opacity: 0.7;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      margin-bottom: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .subsection-title {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--charcoal);
+      margin: 2rem 0 0.75rem;
+      letter-spacing: -0.01em;
+    }
+
+    p { margin-bottom: 1rem; color: var(--charcoal); }
+
+    /* ── CALLOUTS ── */
+    .callout {
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: grid;
+      grid-template-columns: 24px 1fr;
+      gap: 0.75rem;
+      align-items: start;
+    }
+
+    .callout-danger {
+      background: var(--danger-bg);
+      border-left: 3px solid #C0392B;
+    }
+
+    .callout-warning {
+      background: var(--warning-bg);
+      border-left: 3px solid #D4890A;
+    }
+
+    .callout-info {
+      background: var(--teal-pale);
+      border-left: 3px solid var(--soft-teal);
+    }
+
+    .callout-icon {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .callout-body { font-size: 0.9rem; line-height: 1.6; }
+    .callout-body strong { display: block; margin-bottom: 0.25rem; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
+    .callout-danger .callout-body strong { color: var(--danger-red); }
+    .callout-warning .callout-body strong { color: var(--warning-amber); }
+    .callout-info .callout-body strong { color: var(--deep-teal); }
+    .callout-body p { margin: 0; color: inherit; }
+
+    /* ── LISTS ── */
+    ul.guide-list, ol.guide-list {
+      padding-left: 1.25rem;
+      margin: 0.75rem 0 1rem;
+    }
+    ul.guide-list li, ol.guide-list li {
+      margin-bottom: 0.5rem;
+      color: var(--charcoal);
+      font-size: 0.95rem;
+    }
+
+    /* ── IN-THE-BOX ── */
+    .box-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin: 1.25rem 0;
+    }
+
+    .box-item {
+      background: var(--cream);
+      border-radius: 10px;
+      padding: 1rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--earth);
+    }
+
+    .box-item-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--soft-teal);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: white;
+      font-size: 0.875rem;
+    }
+
+    /* ── STATUS BAR ── */
+    .display-status-bar {
+      background: var(--charcoal);
+      border-radius: 10px;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin: 1.25rem 0;
+      flex-wrap: wrap;
+    }
+
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #ccc;
+      font-size: 0.8rem;
+    }
+
+    .status-value {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      color: #5BBFC2;
+      font-weight: 500;
+    }
+
+    .status-label {
+      font-size: 0.7rem;
+      opacity: 0.6;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── DISTANCE TABLE ── */
+    .distance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .distance-table thead {
+      background: var(--deep-teal);
+      color: white;
+    }
+
+    .distance-table th {
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .distance-table td {
+      padding: 0.85rem 1.1rem;
+      border-bottom: 1px solid rgba(85,144,146,0.12);
+      color: var(--charcoal);
+    }
+
+    .distance-table tr:nth-child(even) td { background: var(--teal-pale); }
+    .distance-table tr:last-child td { border-bottom: none; }
+
+    .distance-table .default-row td {
+      background: var(--teal-light) !important;
+      font-weight: 500;
+    }
+
+    .badge-default {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: var(--soft-teal);
+      color: white;
+      border-radius: 20px;
+      padding: 2px 8px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      counter-reset: step-counter;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding-bottom: 1.5rem;
+      position: relative;
+    }
+
+    .step::before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--deep-teal);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
+      flex-shrink: 0;
+    }
+
+    .step::after {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 36px;
+      bottom: 0;
+      width: 1px;
+      background: rgba(85,144,146,0.2);
+    }
+    .step:last-child::after { display: none; }
+
+    .step-content { padding-top: 0.4rem; }
+    .step-content strong { display: block; margin-bottom: 0.35rem; font-weight: 600; }
+    .step-content p { margin: 0; font-size: 0.9rem; color: var(--earth); }
+
+    /* ── FAQ ── */
+    .faq-item {
+      border: 1px solid rgba(85,144,146,0.15);
+      border-radius: 10px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.1rem 1.25rem;
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 0.95rem;
+      gap: 1rem;
+      background: var(--cream);
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .faq-q:hover { background: var(--teal-pale); }
+
+    .faq-q svg {
+      width: 18px;
+      height: 18px;
+      color: var(--soft-teal);
+      flex-shrink: 0;
+      transition: transform 0.2s;
+    }
+
+    .faq-item.open .faq-q svg { transform: rotate(180deg); }
+
+    .faq-a {
+      display: none;
+      padding: 1rem 1.25rem 1.25rem;
+      font-size: 0.9rem;
+      color: var(--earth);
+      line-height: 1.7;
+      background: white;
+      border-top: 1px solid rgba(85,144,146,0.1);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── SPEC GRID ── */
+    .spec-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.5rem 2rem;
+      margin: 1rem 0;
+    }
+
+    .spec-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid rgba(85,144,146,0.1);
+      font-size: 0.875rem;
+    }
+
+    .spec-key {
+      color: var(--earth);
+      font-size: 0.8rem;
+    }
+
+    .spec-val {
+      font-weight: 500;
+      color: var(--charcoal);
+      text-align: right;
+    }
+
+    /* ── PRODUCT IMAGE ── */
+    .product-image-wrap {
+      background: var(--cream);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+      margin: 1.5rem 0;
+    }
+
+    .product-image-wrap img {
+      max-width: 100%;
+      max-height: 300px;
+      object-fit: contain;
+    }
+
+    /* ── DISCLAIMER ── */
+    .wellness-disclaimer {
+      background: var(--teal-pale);
+      border: 1px solid rgba(85,144,146,0.2);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin: 2rem 0;
+      font-size: 0.825rem;
+      color: var(--earth);
+      line-height: 1.65;
+    }
+
+    .wellness-disclaimer strong {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--deep-teal);
+      margin-bottom: 0.5rem;
+    }
+
+    /* ── QUICK LINK CTA ── */
+    .cta-strip {
+      background: var(--deep-teal);
+      color: white;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 2rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .cta-strip p { color: white; margin: 0; font-size: 0.95rem; }
+    .cta-strip a {
+      display: inline-block;
+      background: white;
+      color: var(--deep-teal);
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+    }
+    .cta-strip a:hover { opacity: 0.9; }
+
+    /* ── DISPLAY MOCKUP ── */
+    .display-mockup {
+      margin: 1.25rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(85,144,146,0.2);
+      background: #1a1a1a;
+    }
+
+    .mockup-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.85rem;
+      gap: 0.5rem;
+    }
+
+    .mockup-bar-upper {
+      background: var(--soft-teal);
+      min-height: 36px;
+    }
+
+    .mockup-bar-lower {
+      background: var(--deep-teal);
+      min-height: 44px;
+      justify-content: center;
+    }
+
+    .mockup-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .mockup-group-right {
+      gap: 0.5rem;
+    }
+
+    .mockup-item {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      position: relative;
+    }
+
+    .mockup-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.95;
+    }
+
+    .mockup-val {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: white;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .mockup-val.highlight-teal {
+      color: #aef0f0;
+      font-size: 0.8rem;
+    }
+
+    .mockup-small {
+      font-size: 0.65rem;
+      opacity: 0.8;
+    }
+
+    /* Lower menu items */
+    .mockup-menu-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      background: rgba(255,255,255,0.08);
+      position: relative;
+    }
+
+    .mockup-menu-item:hover { background: rgba(255,255,255,0.15); }
+
+    .mockup-icon-menu {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+      opacity: 0.9;
+    }
+
+    .mockup-menu-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    /* Annotations below mockup */
+    .mockup-annotations {
+      background: var(--teal-pale);
+      border-top: 1px solid rgba(85,144,146,0.15);
+      padding: 0.85rem 1rem;
+    }
+
+    .annotation-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+    }
+
+    .ann-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--earth);
+    }
+
+    .ann-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .ann-dot.ann-teal { background: var(--soft-teal); }
+    .ann-dot.ann-grey { background: var(--earth); opacity: 0.5; }
+
+    /* ── DISPLAY MOCKUP ── */
+    @media (max-width: 768px) {
+      .guide-wrap { grid-template-columns: 1fr; }
+      .guide-sidebar { display: none; }
+      .guide-main { padding: 2rem 1.5rem; }
+      .spec-grid { grid-template-columns: 1fr; }
+      .site-nav { padding: 0 1.25rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav class="site-nav">
+  <a class="wordmark" href="https://nonnanest.com">
+    <span></span>Nonnanest
+  </a>
+  <a class="nav-back" href="https://nonnanest.com">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M10 3L5 8l5 5"/>
+    </svg>
+    Back to home
+  </a>
+</nav>
+
+<div class="guide-wrap">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="guide-sidebar">
+    <p class="sidebar-label">Contents</p>
+    <ul class="sidebar-nav">
+      <li><a href="#safety">Safety warnings</a></li>
+      <li><a href="#in-the-box">What's in the box</a></li>
+      <div class="sidebar-section-divider"></div>
+      <li><a href="#setup">Camera setup & mounting</a></li>
+      <li><a href="#distance">Distance calibration</a></li>
+      <li><a href="#display">Handheld display</a></li>
+      <div class="sidebar-section-divider"></div>
+      <li><a href="#skin-temp">Skin temperature monitoring</a></li>
+      <li><a href="#settings">Settings & features</a></li>
+      <div class="sidebar-section-divider"></div>
+      <li><a href="#troubleshooting">Troubleshooting & FAQ</a></li>
+      <li><a href="#care">Care & maintenance</a></li>
+      <li><a href="#specs">Specifications</a></li>
+    </ul>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="guide-main">
+
+    <!-- Hero -->
+    <div class="guide-hero">
+      <p class="guide-eyebrow">User Guide · Nonnanest v1</p>
+      <h1>Everything you need<br>to know about your<br><em>Nonnanest.</em></h1>
+      <p>A complete guide to setup, calibration, and getting the most from your monitor. No WiFi, no app, no subscriptions — just straightforward peace of mind.</p>
+    </div>
+
+    <!-- ── SAFETY ── -->
+    <section class="guide-section" id="safety">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Safety warnings</h2>
+      <p>Please read these warnings carefully before setting up your Nonnanest monitor. Your family's safety comes first.</p>
+
+      <div class="callout callout-danger">
+        <span class="callout-icon">☠</span>
+        <div class="callout-body">
+          <strong>Choking & strangulation hazard</strong>
+          <p>Keep the power cable and all cords away from your baby at all times. A cable near the crib can pose a serious entanglement risk. Always route cables along walls and out of reach.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-danger">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <strong>Minimum distance requirement</strong>
+          <p>Keep the camera unit, power supply, and all cables at least 3 feet (1 meter) away from the crib mattress surface. Never place any part of the monitor inside the crib or bed.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">⚡</span>
+        <div class="callout-body">
+          <strong>Power & electrical safety</strong>
+          <p>Use only the included power adaptor (DC 5V). Do not use third-party chargers or adaptors, as these may damage the device or create a safety hazard. Do not touch the plug with sharp or metal objects. Keep the monitor away from water, heaters, and humidifiers.</p>
+        </div>
+      </div>
+
+      <ul class="guide-list">
+        <li>Assembly must be completed by an adult.</li>
+        <li>Do not cover the monitor or camera with towels, blankets, or other soft materials.</li>
+        <li>Do not expose either unit to extreme heat, humidity, or liquids.</li>
+        <li>Keep both units out of reach of children at all times.</li>
+        <li>Store this guide somewhere accessible for future reference.</li>
+      </ul>
+    </section>
+
+    <!-- ── IN THE BOX ── -->
+    <section class="guide-section" id="in-the-box">
+      <span class="section-number">02</span>
+      <h2 class="section-title">What's in the box</h2>
+      <p>Your Nonnanest ships complete — everything you need to get started is included.</p>
+
+      <div class="box-grid">
+        <div class="box-item">
+          <div class="box-item-icon">📷</div>
+          Infrared HD Camera
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">📱</div>
+          5" HD Parent Display
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">🔩</div>
+          Wall Mount Bracket
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">🎯</div>
+          Flexible Crib Mount
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">🔌</div>
+          USB-C Power Cable
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">🔌</div>
+          Power Adaptor (DC 5V)
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">🔩</div>
+          Bag of screws
+        </div>
+        <div class="box-item">
+          <div class="box-item-icon">📄</div>
+          Quick Start Guide
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">ℹ</span>
+        <div class="callout-body">
+          <strong>No app, no WiFi, no account needed</strong>
+          <p>Nonnanest connects via FHSS encrypted radio — a private, dedicated signal between your camera and display. There's nothing to download and no account to create.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SETUP ── -->
+    <section class="guide-section" id="setup">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Camera setup & mounting</h2>
+      <p>Both mounting options are included. Choose the one that suits your nursery — you can always switch later as your baby grows.</p>
+
+      <div class="product-image-wrap">
+        <img src="/images/Nonnanest_Handheld_v1.png" alt="Nonnanest 5-inch handheld display showing live baby feed and skin temperature reading" loading="lazy">
+      </div>
+
+      <h3 class="subsection-title">Choosing your mount</h3>
+      <p><strong>Flexible Crib Mount</strong> — Perfect for newborns. Clips onto the crib rail and adjusts to position the camera directly above the mattress at the ideal downward angle.</p>
+      <p><strong>Wall Mount Bracket</strong> — Flush-mounted and out of reach, ideal once your baby can sit or pull to stand. Provides a permanent, secure install.</p>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">📐</span>
+        <div class="callout-body">
+          <strong>Placement tip</strong>
+          <p>For the most accurate skin temperature readings, the camera should be positioned directly above the crib, facing downward. Before mounting, measure the distance from where the camera lens will sit to the mattress surface — you'll use this in Step 5 (distance calibration).</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Powering the camera</h3>
+      <ol class="guide-list">
+        <li>Connect the USB-C power cable to the camera unit.</li>
+        <li>Route the cable safely along the wall or crib frame, secured out of baby's reach.</li>
+        <li>Plug the adaptor into a wall outlet.</li>
+        <li>The camera status light will briefly illuminate, then go dark — this is by design. No LEDs remain visible during normal use.</li>
+      </ol>
+
+      <h3 class="subsection-title">Pairing your display</h3>
+      <p>The camera and display are factory pre-paired. Simply power on both devices and they will automatically connect over FHSS.</p>
+      <p>Press and hold the power button on the top of the handheld display for 3 seconds. The display will turn on and locate your camera within a few seconds.</p>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">🔗</span>
+        <div class="callout-body">
+          <strong>Need to re-pair?</strong>
+          <p>If you ever need to re-pair the devices, hold the pairing button on both the camera and the display simultaneously for 5 seconds. The display will flash blue during pairing and stop when connected. If pairing doesn't succeed within 30 seconds, it will exit automatically — try again from a closer distance.</p>
+        </div>
+      </div>
+
+      <div class="callout callout-warning">
+        <span class="callout-icon">🔊</span>
+        <div class="callout-body">
+          <strong>Audio feedback prevention</strong>
+          <p>Keep the handheld display and camera at least 1.5 meters (5 feet) apart during use to prevent audio howling or feedback. Avoid pointing the display's microphone directly at the camera.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DISTANCE CALIBRATION ── -->
+    <section class="guide-section" id="distance">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Distance calibration</h2>
+      <p>The infrared sensor that reads your baby's skin temperature is highly accurate — but it needs to know how far it is from the crib mattress to calibrate correctly. This is a one-time setup step.</p>
+
+      <h3 class="subsection-title">How to measure</h3>
+      <p>Use a tape measure from the camera lens straight down to the mattress surface. Take note of this distance in feet or centimeters.</p>
+
+      <h3 class="subsection-title">Selecting your setting</h3>
+      <p>Go to the Settings menu on the handheld display and choose the Distance setting that contains your measurement.</p>
+
+      <table class="distance-table">
+        <thead>
+          <tr>
+            <th>Setting</th>
+            <th>Metric</th>
+            <th>Imperial</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Close</td>
+            <td>60 – 80 cm</td>
+            <td>2.0 – 2.6 ft</td>
+          </tr>
+          <tr>
+            <td>Near</td>
+            <td>80 – 100 cm</td>
+            <td>2.6 – 3.3 ft</td>
+          </tr>
+          <tr class="default-row">
+            <td>Standard <span class="badge-default">Default</span></td>
+            <td>100 – 120 cm</td>
+            <td>3.3 – 3.9 ft</td>
+          </tr>
+          <tr>
+            <td>Far</td>
+            <td>120 – 150 cm</td>
+            <td>3.9 – 4.9 ft</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">✓</span>
+        <div class="callout-body">
+          <strong>Standard is the safe default</strong>
+          <p>Pediatric guidelines recommend a minimum of 3 feet (1 meter) between the camera and the crib mattress. The "Standard" default setting is already calibrated for this safe range — so if you haven't measured yet, Standard is a safe starting point. The more accurately your setting matches your actual distance, the more reliable your skin temperature readings will be.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── DISPLAY OVERVIEW ── -->
+    <section class="guide-section" id="display">
+      <span class="section-number">05</span>
+      <h2 class="section-title">Handheld display overview</h2>
+      <p>The 5-inch HD handheld display is your window into the nursery. Here's what you'll see on screen when paired.</p>
+
+      <h3 class="subsection-title">Upper status bar</h3>
+      <p>The teal status bar across the top of the display shows your live readings at a glance. Here's what each element means:</p>
+
+      <!-- Upper status bar mockup -->
+      <div class="display-mockup">
+        <div class="mockup-bar mockup-bar-upper">
+          <div class="mockup-group">
+            <div class="mockup-item annotated" data-label="Room temperature">
+              <img src="/images/icons/Simple_House_Icon.png" class="mockup-icon" alt="House icon — room temp">
+              <span class="mockup-val">72°</span>
+            </div>
+            <div class="mockup-item annotated" data-label="Baby skin temperature">
+              <img src="/images/icons/Simple_Baby_Face_Icon.png" class="mockup-icon" alt="Baby face icon — skin temp">
+              <span class="mockup-val highlight-teal">98.6°</span>
+            </div>
+          </div>
+          <div class="mockup-group mockup-group-right">
+            <div class="mockup-item annotated" data-label="Camera count">
+              <span class="mockup-val mockup-small">1</span>
+            </div>
+            <div class="mockup-item annotated" data-label="Zoom level">
+              <img src="/images/icons/Baby_Monitor_Zoom_Icon.png" class="mockup-icon" alt="Zoom icon">
+            </div>
+            <div class="mockup-item annotated" data-label="Current time">
+              <span class="mockup-val">22:00</span>
+            </div>
+            <div class="mockup-item annotated" data-label="Volume level">
+              <img src="/images/icons/Baby_Monitor_Sound_Signal.png" class="mockup-icon" alt="Volume icon">
+            </div>
+            <div class="mockup-item annotated" data-label="FHSS signal strength">
+              <img src="/images/icons/Signal_Connectivity_Monitor.png" class="mockup-icon" alt="Signal bars">
+            </div>
+            <div class="mockup-item annotated" data-label="Battery level">
+              <img src="/images/icons/Battery_baby_monitor.png" class="mockup-icon" alt="Battery icon">
+            </div>
+          </div>
+        </div>
+        <div class="mockup-annotations">
+          <div class="annotation-row">
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>House icon</strong> — Room temperature</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Baby face icon</strong> — Baby skin temperature reading</div>
+            <div class="ann-item"><span class="ann-dot ann-grey"></span><strong>Clock</strong> — Current time</div>
+            <div class="ann-item"><span class="ann-dot ann-grey"></span><strong>Speaker</strong> — Volume level (0–6)</div>
+            <div class="ann-item"><span class="ann-dot ann-grey"></span><strong>Signal bars</strong> — FHSS connection strength</div>
+            <div class="ann-item"><span class="ann-dot ann-grey"></span><strong>Battery</strong> — Display battery level</div>
+          </div>
+        </div>
+      </div>
+
+      <p>Temperature defaults to °F. To switch to °C, go to Settings → Temperature → Unit. This is a one-time setting that stays saved.</p>
+
+      <h3 class="subsection-title">Settings menu (lower bar)</h3>
+      <p>Press the Menu (OK/M) button to open the settings menu. Icons scroll across the bottom of the screen — navigate with the left/right arrows and press OK to enter any setting.</p>
+
+      <!-- Lower menu bar mockup -->
+      <div class="display-mockup">
+        <div class="mockup-bar mockup-bar-lower">
+          <div class="mockup-group">
+            <div class="mockup-menu-item annotated" data-label="Lullaby">
+              <img src="/images/icons/Baby_Monitor_White_Music_Note.png" class="mockup-icon-menu" alt="Music / Lullaby">
+            </div>
+            <div class="mockup-menu-item annotated" data-label="Time setting">
+              <img src="/images/icons/Clock_for_Menu_Baby_Monitor.png" class="mockup-icon-menu" alt="Clock / Time">
+            </div>
+            <div class="mockup-menu-item annotated" data-label="Temperature settings">
+              <img src="/images/icons/Temperature_Setting_Baby_Monitor.png" class="mockup-icon-menu" alt="Thermometer / Temperature">
+            </div>
+            <div class="mockup-menu-item annotated" data-label="Camera / display">
+              <img src="/images/icons/Simple_Baby_Face_Icon.png" class="mockup-icon-menu" alt="Camera / Baby face">
+            </div>
+            <div class="mockup-menu-item annotated" data-label="VOX sound detection">
+              <span class="mockup-menu-label">VOX</span>
+            </div>
+            <div class="mockup-menu-item annotated" data-label="Zoom">
+              <img src="/images/icons/Baby_Monitor_Zoom_Icon.png" class="mockup-icon-menu" alt="Zoom">
+            </div>
+            <div class="mockup-menu-item annotated" data-label="Camera management">
+              <img src="/images/icons/Signal_Connectivity_Monitor.png" class="mockup-icon-menu" alt="Camera / Signal">
+            </div>
+            <div class="mockup-menu-item annotated" data-label="Exit menu">
+              <span class="mockup-menu-label">←</span>
+            </div>
+          </div>
+        </div>
+        <div class="mockup-annotations">
+          <div class="annotation-row">
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Music note</strong> — Lullabies</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Clock</strong> — Set system time</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Thermometer</strong> — Temperature settings &amp; units</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Baby face</strong> — Camera selection &amp; pairing</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>VOX</strong> — Sound-activated screen wake</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Zoom</strong> — Digital zoom level</div>
+            <div class="ann-item"><span class="ann-dot ann-teal"></span><strong>Signal</strong> — Camera management</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Display buttons (right side panel)</h3>
+      <ul class="guide-list">
+        <li><strong>Microphone button</strong> — Hold to activate two-way audio (intercom)</li>
+        <li><strong>Music note button</strong> — Activate lullabies directly</li>
+        <li><strong>Navigation ring (OK/M center)</strong> — Open menu / confirm selections</li>
+        <li><strong>Direction arrows (◀ ▶)</strong> — Adjust volume; navigate menus left/right</li>
+        <li><strong>Pan/tilt buttons</strong> — Control camera rotation remotely</li>
+        <li><strong>Night vision / brightness buttons</strong> — Adjust screen brightness or toggle night vision</li>
+      </ul>
+
+      <h3 class="subsection-title">Camera pan & tilt</h3>
+      <p>Your camera supports 355° pan and 60° tilt remote control. From the main view, press the PTZ button on the display, then use the directional keys to rotate the camera up, down, left, or right until you have the view you want.</p>
+    </section>
+
+    <!-- ── SKIN TEMP ── -->
+    <section class="guide-section" id="skin-temp">
+      <span class="section-number">06</span>
+      <h2 class="section-title">Skin temperature monitoring</h2>
+      <p>Nonnanest uses a contactless infrared sensor to read your baby's skin temperature continuously, without any wearables or physical contact with your little one.</p>
+
+      <h3 class="subsection-title">How it works</h3>
+      <p>The infrared sensor in the camera measures the radiant heat from your baby's skin surface — specifically from the forehead area as your baby lies in the crib. The reading is displayed in real time on the parent display alongside the room temperature.</p>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">🌡</span>
+        <div class="callout-body">
+          <strong>Skin temperature vs. body temperature</strong>
+          <p>Nonnanest measures skin surface temperature, which naturally varies with room conditions, clothing, and your baby's activity. Skin temperature readings are wellness indicators — they help you spot patterns and shifts over time, not provide clinical measurements. Always consult your pediatrician if you have health concerns about your child.</p>
+        </div>
+      </div>
+
+      <h3 class="subsection-title">Wellness alerts</h3>
+      <p>The display will gently alert you when skin temperature patterns shift noticeably — no manual threshold configuration is needed. When an alert appears, a visual indicator will show on screen. If sound alerts are enabled, a soft beep will sound and you can press any button to dismiss it.</p>
+      <p>These alerts are wellness cues to check on your baby — not clinical diagnostics. If your baby's skin temperature reading seems elevated, check on them directly and contact your healthcare provider if you have concerns.</p>
+
+      <h3 class="subsection-title">Getting accurate readings</h3>
+      <ul class="guide-list">
+        <li>Ensure distance calibration (Section 04) matches your actual camera height.</li>
+        <li>Position the camera directly above the crib, facing straight down.</li>
+        <li>Allow 10–15 minutes after room temperature changes for readings to stabilize.</li>
+        <li>Room air circulation, fans, and vents near the crib can affect readings — minimize drafts directly over the crib.</li>
+        <li>The infrared sensor has a natural margin of ±1°C / ±1.8°F.</li>
+      </ul>
+
+      <div class="wellness-disclaimer">
+        <strong>Wellness disclaimer</strong>
+        Nonnanest is a wellness monitoring device intended to help parents observe skin temperature patterns and general wellness indicators. It is not a medical device, does not diagnose any medical condition, and should not be used as a substitute for professional medical advice, examination, or diagnosis. Always consult a qualified healthcare provider if you have concerns about your baby's health.
+      </div>
+    </section>
+
+    <!-- ── SETTINGS ── -->
+    <section class="guide-section" id="settings">
+      <span class="section-number">07</span>
+      <h2 class="section-title">Settings & features</h2>
+      <p>Access all settings via the Menu button (OK/M) on the handheld display. Use the directional arrows to navigate between options and OK to confirm.</p>
+
+      <h3 class="subsection-title">Volume</h3>
+      <p>Press the left or right directional arrows directly from the main view to adjust volume. Six levels are available (0–6). Audio from the camera is always transmitted — volume only affects playback on the display.</p>
+
+      <h3 class="subsection-title">Two-way audio (Intercom)</h3>
+      <p>Press and hold the microphone button on the display to speak directly to your baby through the camera speaker. Release the button when you're done. This is a push-to-talk mode — your voice transmits only while the button is held.</p>
+
+      <h3 class="subsection-title">Lullabies</h3>
+      <p>Press the music button or navigate to Menu → Lullaby. Select an individual track or choose the "loop all" option to cycle through all lullabies continuously. Press the music button again to stop. Long-press the music button from the main screen to activate loop-all playback as a shortcut.</p>
+
+      <h3 class="subsection-title">VOX / Sound-activated screen wake</h3>
+      <p>VOX mode automatically wakes the display screen when the camera detects sound above a set threshold — useful when you want the screen to stay dark until your baby stirs.</p>
+      <ul class="guide-list">
+        <li>Navigate to Menu → VOX and toggle on or off.</li>
+        <li>When VOX is on, the screen dims after 30 seconds of silence and wakes automatically when sound is detected. Audio is always transmitted even when the screen is off.</li>
+        <li>Short-press the menu key from the main screen to toggle VOX on/off as a shortcut.</li>
+        <li>When VOX is off, the screen stays illuminated continuously.</li>
+      </ul>
+
+      <h3 class="subsection-title">Display brightness</h3>
+      <p>Press the brightness buttons (or navigate via Menu → Brightness) to cycle through six brightness levels. Lowering brightness extends battery life and is useful for nighttime use without disturbing the bedroom.</p>
+
+      <h3 class="subsection-title">Night vision</h3>
+      <p>Night vision activates automatically when the camera's ambient light sensor detects a dark environment. The infrared LED illuminates the room invisibly, giving you a clear black-and-white image without disturbing your baby's sleep. You can also toggle it manually from the display.</p>
+
+      <h3 class="subsection-title">Temperature units (°F / °C)</h3>
+      <p>Navigate to Menu → Temperature → Unit to switch between Fahrenheit and Celsius. This setting is saved and persists between sessions.</p>
+
+      <h3 class="subsection-title">Feeding reminder</h3>
+      <p>Navigate to Menu → Alarm to set a recurring feeding reminder. Available intervals: 30 min, 1h, 2h, 3h, and 4h. When the reminder fires, the display will beep and a feeding icon will flash on screen. Press any button to dismiss.</p>
+
+      <h3 class="subsection-title">Zoom</h3>
+      <p>Navigate to Menu → Zoom to select digital zoom levels. Use this to get a closer view of your baby without physically moving the camera.</p>
+
+      <h3 class="subsection-title">Video recording (SD card)</h3>
+      <p>Nonnanest supports local video recording to a microSD card (up to 32GB, FAT32 format). Insert the SD card into the slot on the camera unit. From the main screen, press and hold the center button for 1.5 seconds to start recording — a flashing indicator will appear. Press and hold again to stop. Recorded video can be viewed by removing the SD card and playing it on a computer. Playback on the display is not supported.</p>
+
+      <h3 class="subsection-title">System clock</h3>
+      <p>Navigate to Menu → Time to set the current time (hours, minutes, seconds). Use the directional arrows to adjust each value and confirm with OK.</p>
+
+      <h3 class="subsection-title">Display orientation</h3>
+      <p>If you mount the camera upside down for a particular installation angle, you can flip the display image. Navigate to Menu → Camera → Orientation and select the correct rotation.</p>
+    </section>
+
+    <!-- ── TROUBLESHOOTING ── -->
+    <section class="guide-section" id="troubleshooting">
+      <span class="section-number">08</span>
+      <h2 class="section-title">Troubleshooting & FAQ</h2>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          My display isn't connecting to the camera
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          Ensure both the camera and display are powered on. The camera powers on automatically when plugged in — the status light will briefly illuminate. The display requires a long press (3 seconds) of the power button. If they don't connect automatically, try manual pairing: hold the pairing button on both devices simultaneously for 5 seconds. If pairing fails repeatedly, try bringing both devices closer together (within 2 meters) to re-pair, then move them to their final positions.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          The signal keeps dropping or the image is choppy
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          FHSS signal can be attenuated by reinforced concrete walls, large metal appliances (refrigerators, metal doors), and some electronic equipment. Try repositioning either unit to reduce the number of walls or obstructions between them. If a large appliance is between the camera and display, try a different path. Radios and other wireless devices can sometimes cause interference — move the display away from these sources.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          I'm hearing feedback / howling sounds
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          This happens when the display and camera are too close together or the display microphone is facing the camera speaker. Keep the display and camera at least 1.5 meters (5 feet) apart. Avoid pointing the display directly at the camera. This is most common when you bring the display into the nursery — just move it to a doorway or adjacent room.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          The skin temperature reading seems off
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          First, verify that your Distance setting (Section 04) matches your actual camera height above the mattress. The infrared sensor needs this calibration to be accurate. Also allow readings to stabilize for 10–15 minutes if the room temperature has changed recently. Fans, AC vents, or open windows near the crib can cause lower-than-expected skin temperature readings. The sensor has a natural margin of ±1°C / ±1.8°F. Remember that skin temperature naturally varies with room conditions and activity — it is not equivalent to a rectal or oral temperature measurement.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          The display screen isn't turning on
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          If VOX mode is active, the screen will stay dark until it detects sound from the camera. Press any button on the display to wake it manually. If the battery is low, a series of 5 beeps will sound — plug in the display using the included power adaptor to charge. Hold the power button for 3 seconds to turn the display on from a fully off state.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Does Nonnanest require WiFi or an app?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          No. Nonnanest operates entirely offline using FHSS (Frequency Hopping Spread Spectrum) encrypted radio. There is no WiFi, no cloud connection, no app, and no account. The camera and display communicate directly with each other on a dedicated, encrypted signal. Nothing leaves your home.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Can I use Nonnanest with multiple cameras?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          The display supports pairing with multiple cameras. Navigate to Menu → Camera → Pair to add a second camera. You can then switch between camera views from the same menu, or enable cyclic mode to automatically rotate between cameras at a set interval. Note that one camera can only be paired to one display at a time.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How long does the display battery last?
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">
+          Battery life depends on screen brightness and how often the screen is active. Using VOX mode (screen dims when quiet) significantly extends battery life. When battery is low, you'll hear 5 consecutive beeps as a reminder — plug in the included power adaptor to charge. You can use the display while it's charging.
+        </div>
+      </div>
+
+      <div class="callout callout-info">
+        <span class="callout-icon">💬</span>
+        <div class="callout-body">
+          <strong>Still need help?</strong>
+          <p>We're real people and we respond quickly. Email us anytime at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5ada0a9a9aa85abaaababa4aba0b6b1eba6aaa8">[email&#160;protected]</a></strong> — we typically respond same day.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CARE ── -->
+    <section class="guide-section" id="care">
+      <span class="section-number">09</span>
+      <h2 class="section-title">Care & maintenance</h2>
+      <p>A little care goes a long way in keeping your Nonnanest performing well for years.</p>
+
+      <h3 class="subsection-title">Cleaning</h3>
+      <p>Clean both the camera and the handheld display with a slightly damp soft cloth. Do not use harsh chemicals, solvents, or abrasive cleaners — these can damage the device surface and may void the warranty. Allow both units to dry completely before use.</p>
+
+      <h3 class="subsection-title">Storage & environment</h3>
+      <ul class="guide-list">
+        <li>Keep both units away from direct water sources, steam, and high humidity environments.</li>
+        <li>Do not expose either unit to extreme heat — keep away from radiators, space heaters, and direct sunlight.</li>
+        <li>Store in a cool, dry location when not in use.</li>
+        <li>Do not drop or subject either unit to physical shock.</li>
+      </ul>
+
+      <h3 class="subsection-title">Infrared lens care</h3>
+      <p>The infrared lens on the camera is the key to accurate skin temperature readings. Keep it free of dust, fingerprints, and smudges. Clean gently with a dry microfiber cloth — avoid touching the lens directly. Never use liquid cleaners near the lens opening.</p>
+    </section>
+
+    <!-- ── SPECS ── -->
+    <section class="guide-section" id="specs">
+      <span class="section-number">10</span>
+      <h2 class="section-title">Specifications</h2>
+
+      <div class="spec-grid">
+        <div class="spec-row">
+          <span class="spec-key">Display size</span>
+          <span class="spec-val">5" HD</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Camera resolution</span>
+          <span class="spec-val">720p HD</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Wireless protocol</span>
+          <span class="spec-val">FHSS Encrypted</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Cloud / WiFi</span>
+          <span class="spec-val">None — fully offline</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Temperature sensor</span>
+          <span class="spec-val">Contactless infrared</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Temp accuracy</span>
+          <span class="spec-val">±1°C / ±1.8°F</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Camera rotation</span>
+          <span class="spec-val">355° pan / 60° tilt</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Camera power</span>
+          <span class="spec-val">USB-C (DC 5V)</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Mounting options</span>
+          <span class="spec-val">Wall + crib mount included</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">App required</span>
+          <span class="spec-val">No</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Wearables required</span>
+          <span class="spec-val">No</span>
+        </div>
+        <div class="spec-row">
+          <span class="spec-key">Subscription</span>
+          <span class="spec-val">None — one-time $329</span>
+        </div>
+      </div>
+
+      <div class="cta-strip">
+        <p>Want to get set up quickly? The Quick Start Guide walks you through the essentials in about 5 minutes.</p>
+        <a href="/quickstart">View Quick Start →</a>
+      </div>
+
+      <div class="wellness-disclaimer">
+        <strong>Wellness disclaimer</strong>
+        Nonnanest is a wellness monitoring device. It is not a medical device and is not intended to diagnose, treat, cure, or prevent any medical condition. Skin temperature readings are wellness indicators only. Always consult a qualified pediatrician or healthcare provider for any concerns about your child's health. Do not rely solely on Nonnanest readings when making medical decisions.
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Active sidebar highlighting on scroll
+  const sections = document.querySelectorAll('.guide-section[id]');
+  const sidebarLinks = document.querySelectorAll('.guide-sidebar a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        sidebarLinks.forEach(link => link.classList.remove('active'));
+        const activeLink = document.querySelector(`.guide-sidebar a[href="
