@@ -293,6 +293,12 @@ nav {
   gap: 0;
 }
 .mobile-nav.open { display: flex; }
+.mobile-nav-close {
+  position: absolute; top: 20px; right: 20px;
+  background: none; border: none; cursor: pointer; padding: 8px;
+  color: var(--charcoal); transition: color 0.2s;
+}
+.mobile-nav-close:hover { color: var(--deep-teal); }
 .mobile-nav a {
   font-family: 'Fraunces', serif;
   font-size: 28px;
@@ -790,6 +796,9 @@ function dismissDisclaimer() {
 
 <!-- Mobile Nav Overlay -->
 <div class="mobile-nav" id="mobileNav">
+  <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Close menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
   <a href="#how-it-works" onclick="closeMobileNav()">How It Works</a>
   <a href="#features" onclick="closeMobileNav()">Why Nonnanest</a>
   <a href="#story" onclick="closeMobileNav()">Our Story</a>
@@ -1261,5 +1270,5 @@ function closeMobileNav() {
   </div>
 </footer>
 
-// Force scroll to top on page load
-if ('scrollRestoratio
+</body>
+</html>
