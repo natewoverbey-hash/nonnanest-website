@@ -650,13 +650,15 @@ nav {
 .founder-section { background: var(--cream); border-top: 1px solid var(--linen); border-bottom: 1px solid var(--linen); }
 .founder-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
 .founder-photo {
-  aspect-ratio: 3/4; background: linear-gradient(145deg, var(--linen) 0%, var(--warm-sand) 100%);
-  border-radius: 24px; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 32px;
+  position: relative; aspect-ratio: 3/4; border-radius: 24px; overflow: hidden; background: var(--warm-sand);
 }
+.founder-photo img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; }
 .founder-photo-label {
+  position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
   font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px;
-  text-transform: uppercase; color: var(--bark); background: rgba(255,255,255,0.8);
-  padding: 8px 16px; border-radius: 8px;
+  text-transform: uppercase; color: var(--bark); background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  padding: 8px 16px; border-radius: 8px; white-space: nowrap;
 }
 .founder-text blockquote {
   font-family: 'Fraunces', serif; font-size: 24px; font-weight: 300;
@@ -1054,7 +1056,7 @@ function closeMobileNav() {
 
 <!-- ===== FOUNDER ===== -->
 <section class="section founder-section" id="story">
-  <div class="section" style="padding-top:0;padding-bottom:1;">
+  <div class="section" style="padding-top:0;padding-bottom:0;">
     <div class="founder-grid">
       <div class="founder-photo">
         <img src="images/Ellis_Reed_Founder_Story.jpg" alt="Nathan, founder of Nonnanest, with his children">
@@ -1128,7 +1130,7 @@ function closeMobileNav() {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
       <div class="faq-answer">
-        <p>No. Nonnanest communicates directly between the nursery camera and parent  using FHSS (Frequency Hopping Spread Spectrum) encryption. No WiFi, no cloud, no internet dependency. Private by design, not by promise.</p>
+        <p>No. Nonnanest communicates directly between the nursery camera and parent handheld using FHSS (Frequency Hopping Spread Spectrum) encryption. No WiFi, no cloud, no internet dependency. Private by design, not by promise.</p>
       </div>
     </div>
 
@@ -1178,7 +1180,7 @@ function closeMobileNav() {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
       </div>
       <div class="faq-answer">
-        <p>Everything you need: the Nonnanest nursery camera with infrared sensing, the 5" HD parent  display, crib mount, wall mount, power cables, and a quick start guide. Mount the camera directly above the crib facing downward for the best view and most accurate readings. Setup takes about five minutes.</p>
+        <p>Everything you need: the Nonnanest nursery camera with infrared sensing, the 5" HD parent handheld display, crib mount, wall mount, power cables, and a quick start guide. Mount the camera directly above the crib facing downward for the best view and most accurate readings. Setup takes about five minutes.</p>
       </div>
     </div>
   </div>
