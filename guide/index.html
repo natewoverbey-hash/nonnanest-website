@@ -43,16 +43,20 @@
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1076529151218038&ev=PageView&noscript=1"/></noscript>
 
   <!-- HubSpot -->
-  <script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/242981565.js"></script>
+  <script src="https://js-na2.hsforms.net/forms/embed/242981565.js" defer></script>
 
   <style>
     :root {
       --soft-teal: #559092;
       --deep-teal: #3D6B6D;
+      --pale-aqua: #C8E3DF;
+      --teal-mist: #E4EFEE;
       --charcoal: #2C2520;
       --earth: #5C4F43;
+      --bark: #8C7B6B;
       --warm-white: #FAF8F5;
       --cream: #F5F0EA;
+      --linen: #EDE7DF;
       --teal-light: #EBF4F4;
       --teal-pale: #F0F7F7;
       --warning-amber: #B85C00;
@@ -65,7 +69,6 @@
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
@@ -76,52 +79,15 @@
       font-size: 16px;
     }
 
-    /* ── NAV ── */
-    .site-nav {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--warm-white);
-      border-bottom: 1px solid rgba(85,144,146,0.15);
-      padding: 0 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 60px;
+    /* ── NAV (consistent with site interior pages) ── */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 40px; max-width: 1200px; margin: 0 auto;
     }
-
-    .wordmark {
-      font-family: var(--font-serif);
-      font-weight: 500;
-      font-size: 1.25rem;
-      color: var(--charcoal);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
-
-    .wordmark span {
-      display: inline-block;
-      width: 8px;
-      height: 8px;
-      background: var(--soft-teal);
-      border-radius: 50%;
-      margin-right: 6px;
-      vertical-align: middle;
-      position: relative;
-      top: -1px;
-    }
-
+    .wordmark { font-family: 'Fraunces', serif; font-size: 22px; font-weight: 600; color: var(--charcoal); letter-spacing: -0.5px; text-decoration: none; }
     .nav-back {
-      font-family: var(--font-sans);
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--soft-teal);
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s;
+      display: flex; align-items: center; gap: 6px;
+      font-size: 14px; color: var(--bark); text-decoration: none; transition: color 0.2s;
     }
     .nav-back:hover { color: var(--deep-teal); }
     .nav-back svg { width: 16px; height: 16px; }
@@ -132,14 +98,14 @@
       grid-template-columns: 260px 1fr;
       max-width: 1100px;
       margin: 0 auto;
-      min-height: calc(100vh - 60px);
+      min-height: calc(100vh - 80px);
     }
 
     /* ── SIDEBAR ── */
     .guide-sidebar {
       position: sticky;
-      top: 60px;
-      height: calc(100vh - 60px);
+      top: 20px;
+      height: calc(100vh - 40px);
       overflow-y: auto;
       padding: 2.5rem 1.5rem 2.5rem 0;
       border-right: 1px solid rgba(85,144,146,0.12);
@@ -240,7 +206,7 @@
       margin-bottom: 3.5rem;
       padding-bottom: 3.5rem;
       border-bottom: 1px solid rgba(85,144,146,0.1);
-      scroll-margin-top: 80px;
+      scroll-margin-top: 40px;
     }
     .guide-section:last-of-type { border-bottom: none; }
 
@@ -301,10 +267,7 @@
       border-left: 3px solid var(--soft-teal);
     }
 
-    .callout-icon {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
+    .callout-icon { font-size: 1rem; line-height: 1.5; }
 
     .callout-body { font-size: 0.9rem; line-height: 1.6; }
     .callout-body strong { display: block; margin-bottom: 0.25rem; font-weight: 600; font-size: 0.8rem; letter-spacing: 0.04em; text-transform: uppercase; }
@@ -355,40 +318,6 @@
       flex-shrink: 0;
       color: white;
       font-size: 0.875rem;
-    }
-
-    /* ── STATUS BAR ── */
-    .display-status-bar {
-      background: var(--charcoal);
-      border-radius: 10px;
-      padding: 0.75rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      margin: 1.25rem 0;
-      flex-wrap: wrap;
-    }
-
-    .status-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #ccc;
-      font-size: 0.8rem;
-    }
-
-    .status-value {
-      font-family: var(--font-mono);
-      font-size: 0.95rem;
-      color: #5BBFC2;
-      font-weight: 500;
-    }
-
-    .status-label {
-      font-size: 0.7rem;
-      opacity: 0.6;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
     }
 
     /* ── DISTANCE TABLE ── */
@@ -443,57 +372,129 @@
       vertical-align: middle;
     }
 
-    /* ── STEPS ── */
-    .steps {
-      counter-reset: step-counter;
-      list-style: none;
-      padding: 0;
-      margin: 1rem 0;
+    /* ── DISPLAY MOCKUP ── */
+    .display-mockup {
+      margin: 1.25rem 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(85,144,146,0.2);
+      background: #1a1a1a;
+    }
+
+    .mockup-bar {
       display: flex;
-      flex-direction: column;
-      gap: 0;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0.85rem;
+      gap: 0.5rem;
     }
 
-    .step {
-      display: grid;
-      grid-template-columns: 36px 1fr;
-      gap: 1rem;
-      align-items: start;
-      padding-bottom: 1.5rem;
-      position: relative;
+    .mockup-bar-upper {
+      background: var(--soft-teal);
+      min-height: 36px;
     }
 
-    .step::before {
-      content: counter(step-counter);
-      counter-increment: step-counter;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
+    .mockup-bar-lower {
       background: var(--deep-teal);
+      min-height: 44px;
+      justify-content: center;
+    }
+
+    .mockup-group {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .mockup-group-right { gap: 0.5rem; }
+
+    .mockup-item {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      position: relative;
+      background: var(--soft-teal);
+      overflow: hidden;
+    }
+
+    .mockup-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+
+    .mockup-val {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
       color: white;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .mockup-val.highlight-teal {
+      color: #aef0f0;
+      font-size: 0.8rem;
+    }
+
+    .mockup-small { font-size: 0.65rem; opacity: 0.8; }
+
+    .mockup-menu-item {
       display: flex;
       align-items: center;
       justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+      background: var(--deep-teal);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mockup-icon-menu {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+
+    .mockup-menu-label {
       font-family: var(--font-mono);
+      font-size: 0.6rem;
+      color: white;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    .mockup-annotations {
+      background: var(--teal-pale);
+      border-top: 1px solid rgba(85,144,146,0.15);
+      padding: 0.85rem 1rem;
+    }
+
+    .annotation-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem 1.25rem;
+    }
+
+    .ann-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
       font-size: 0.8rem;
-      font-weight: 500;
+      color: var(--earth);
+    }
+
+    .ann-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       flex-shrink: 0;
     }
 
-    .step::after {
-      content: '';
-      position: absolute;
-      left: 18px;
-      top: 36px;
-      bottom: 0;
-      width: 1px;
-      background: rgba(85,144,146,0.2);
-    }
-    .step:last-child::after { display: none; }
-
-    .step-content { padding-top: 0.4rem; }
-    .step-content strong { display: block; margin-bottom: 0.35rem; font-weight: 600; }
-    .step-content p { margin: 0; font-size: 0.9rem; color: var(--earth); }
+    .ann-dot.ann-teal { background: var(--soft-teal); }
+    .ann-dot.ann-grey { background: var(--earth); opacity: 0.5; }
 
     /* ── FAQ ── */
     .faq-item {
@@ -557,16 +558,8 @@
       font-size: 0.875rem;
     }
 
-    .spec-key {
-      color: var(--earth);
-      font-size: 0.8rem;
-    }
-
-    .spec-val {
-      font-weight: 500;
-      color: var(--charcoal);
-      text-align: right;
-    }
+    .spec-key { color: var(--earth); font-size: 0.8rem; }
+    .spec-val { font-weight: 500; color: var(--charcoal); text-align: right; }
 
     /* ── PRODUCT IMAGE ── */
     .product-image-wrap {
@@ -605,7 +598,7 @@
       margin-bottom: 0.5rem;
     }
 
-    /* ── QUICK LINK CTA ── */
+    /* ── CTA STRIP ── */
     .cta-strip {
       background: var(--deep-teal);
       color: white;
@@ -634,158 +627,74 @@
     }
     .cta-strip a:hover { opacity: 0.9; }
 
-    /* ── DISPLAY MOCKUP ── */
-    .display-mockup {
-      margin: 1.25rem 0;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(85,144,146,0.2);
-      background: #1a1a1a;
-    }
-
-    .mockup-bar {
+    /* ── STEPS ── */
+    .steps {
+      counter-reset: step-counter;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.5rem 0.85rem;
-      gap: 0.5rem;
+      flex-direction: column;
     }
 
-    .mockup-bar-upper {
-      background: var(--soft-teal);
-      min-height: 36px;
-    }
-
-    .mockup-bar-lower {
-      background: var(--deep-teal);
-      min-height: 44px;
-      justify-content: center;
-    }
-
-    .mockup-group {
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-
-    .mockup-group-right {
-      gap: 0.5rem;
-    }
-
-    .mockup-item {
-      display: flex;
-      align-items: center;
-      gap: 3px;
+    .step {
+      display: grid;
+      grid-template-columns: 36px 1fr;
+      gap: 1rem;
+      align-items: start;
+      padding-bottom: 1.5rem;
       position: relative;
-      background: var(--soft-teal);
-      overflow: hidden;
     }
 
-    .mockup-icon {
-      width: 18px;
-      height: 18px;
-      object-fit: contain;
-      mix-blend-mode: screen;
-    }
-
-    .mockup-val {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: white;
-      font-weight: 500;
-      white-space: nowrap;
-    }
-
-    .mockup-val.highlight-teal {
-      color: #aef0f0;
-      font-size: 0.8rem;
-    }
-
-    .mockup-small {
-      font-size: 0.65rem;
-      opacity: 0.8;
-    }
-
-    /* Lower menu items */
-    .mockup-menu-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 40px;
-      height: 40px;
-      border-radius: 6px;
-      background: var(--deep-teal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mockup-icon-menu {
-      width: 22px;
-      height: 22px;
-      object-fit: contain;
-      mix-blend-mode: screen;
-    }
-
-    .mockup-menu-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      color: white;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-    }
-
-    /* Annotations below mockup */
-    .mockup-annotations {
-      background: var(--teal-pale);
-      border-top: 1px solid rgba(85,144,146,0.15);
-      padding: 0.85rem 1rem;
-    }
-
-    .annotation-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1.25rem;
-    }
-
-    .ann-item {
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: var(--earth);
-    }
-
-    .ann-dot {
-      width: 6px;
-      height: 6px;
+    .step::before {
+      content: counter(step-counter);
+      counter-increment: step-counter;
+      width: 36px;
+      height: 36px;
       border-radius: 50%;
+      background: var(--deep-teal);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      font-weight: 500;
       flex-shrink: 0;
     }
 
-    .ann-dot.ann-teal { background: var(--soft-teal); }
-    .ann-dot.ann-grey { background: var(--earth); opacity: 0.5; }
+    .step::after {
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 36px;
+      bottom: 0;
+      width: 1px;
+      background: rgba(85,144,146,0.2);
+    }
+    .step:last-child::after { display: none; }
 
-    /* ── DISPLAY MOCKUP ── */
+    .step-content { padding-top: 0.4rem; }
+    .step-content strong { display: block; margin-bottom: 0.35rem; font-weight: 600; }
+    .step-content p { margin: 0; font-size: 0.9rem; color: var(--earth); }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
       .guide-wrap { grid-template-columns: 1fr; }
       .guide-sidebar { display: none; }
       .guide-main { padding: 2rem 1.5rem; }
       .spec-grid { grid-template-columns: 1fr; }
-      .site-nav { padding: 0 1.25rem; }
+      nav { padding: 16px 20px; }
     }
   </style>
 </head>
 <body>
 
-<!-- ── NAV ── -->
-<nav class="site-nav">
-  <a class="wordmark" href="https://nonnanest.com">
-    <span></span>Nonnanest
-  </a>
-  <a class="nav-back" href="https://nonnanest.com">
-    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
-      <path d="M10 3L5 8l5 5"/>
-    </svg>
+<!-- ── NAV (consistent with site interior pages) ── -->
+<nav>
+  <a href="/" class="wordmark">Nonnanest</a>
+  <a href="/" class="nav-back">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
     Back to home
   </a>
 </nav>
@@ -819,7 +728,7 @@
     <div class="guide-hero">
       <p class="guide-eyebrow">User Guide · Nonnanest</p>
       <h1>Everything you need<br>to know about your<br><em>Nonnanest.</em></h1>
-      <p>A complete guide to setup, calibration, and getting the most from your monitor. No WiFi, no app, no subscriptions — just straightforward peace of mind.</p>
+      <p>A complete guide to setup, calibration, and getting the most from your monitor. No WiFi, no app, no subscriptions — just peace of mind.</p>
     </div>
 
     <!-- ── SAFETY ── -->
@@ -1028,32 +937,32 @@
       <div class="display-mockup">
         <div class="mockup-bar mockup-bar-upper">
           <div class="mockup-group">
-            <div class="mockup-item annotated" data-label="Room temperature">
+            <div class="mockup-item">
               <img src="/images/house.png" class="mockup-icon" alt="House icon — room temp">
               <span class="mockup-val">72°</span>
             </div>
-            <div class="mockup-item annotated" data-label="Baby skin temperature">
+            <div class="mockup-item">
               <img src="/images/baby_face.png" class="mockup-icon" alt="Baby face icon — skin temp">
               <span class="mockup-val highlight-teal">98.6°</span>
             </div>
           </div>
           <div class="mockup-group mockup-group-right">
-            <div class="mockup-item annotated" data-label="Camera count">
+            <div class="mockup-item">
               <span class="mockup-val mockup-small">1</span>
             </div>
-            <div class="mockup-item annotated" data-label="Zoom level">
+            <div class="mockup-item">
               <img src="/images/Zoom_icon.png" class="mockup-icon" alt="Zoom icon">
             </div>
-            <div class="mockup-item annotated" data-label="Current time">
+            <div class="mockup-item">
               <span class="mockup-val">22:00</span>
             </div>
-            <div class="mockup-item annotated" data-label="Volume level">
+            <div class="mockup-item">
               <img src="/images/Sound_Signal.png" class="mockup-icon" alt="Volume icon">
             </div>
-            <div class="mockup-item annotated" data-label="FHSS signal strength">
+            <div class="mockup-item">
               <img src="/images/Handheld_signal.png" class="mockup-icon" alt="Signal bars">
             </div>
-            <div class="mockup-item annotated" data-label="Battery level">
+            <div class="mockup-item">
               <img src="/images/Handheld_battery.png" class="mockup-icon" alt="Battery icon">
             </div>
           </div>
@@ -1079,25 +988,25 @@
       <div class="display-mockup">
         <div class="mockup-bar mockup-bar-lower">
           <div class="mockup-group">
-            <div class="mockup-menu-item annotated" data-label="Lullaby">
+            <div class="mockup-menu-item">
               <img src="/images/Music_note.png" class="mockup-icon-menu" alt="Music / Lullaby">
             </div>
-            <div class="mockup-menu-item annotated" data-label="Time setting">
+            <div class="mockup-menu-item">
               <img src="/images/clock.png" class="mockup-icon-menu" alt="Clock / Time">
             </div>
-            <div class="mockup-menu-item annotated" data-label="Temperature settings">
+            <div class="mockup-menu-item">
               <img src="/images/temperature.png" class="mockup-icon-menu" alt="Thermometer / Temperature">
             </div>
-            <div class="mockup-menu-item annotated" data-label="VOX sound detection">
+            <div class="mockup-menu-item">
               <span class="mockup-menu-label">VOX</span>
             </div>
-            <div class="mockup-menu-item annotated" data-label="Zoom">
+            <div class="mockup-menu-item">
               <img src="/images/Zoom_icon.png" class="mockup-icon-menu" alt="Zoom">
             </div>
-            <div class="mockup-menu-item annotated" data-label="Camera distance setting" style="width:52px; background: var(--soft-teal);">
+            <div class="mockup-menu-item" style="width:52px; background: var(--soft-teal);">
               <img src="/images/Cam_temp_distance.png" class="mockup-icon-menu" alt="Camera distance setting" style="width:44px; height:44px; mix-blend-mode: normal; border-radius:4px;">
             </div>
-            <div class="mockup-menu-item annotated" data-label="Exit menu">
+            <div class="mockup-menu-item">
               <span class="mockup-menu-label">←</span>
             </div>
           </div>
@@ -1302,7 +1211,7 @@
         <span class="callout-icon">💬</span>
         <div class="callout-body">
           <strong>Still need help?</strong>
-          <p>We're real people and we respond quickly. Email us anytime at <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c5ada0a9a9aa85abaaababa4aba0b6b1eba6aaa8">[email&#160;protected]</a></strong> — we typically respond same day.</p>
+          <p>We're real people and we respond quickly. Email us anytime at <strong><a href="mailto:hello@nonnanest.com" style="color:var(--deep-teal);">hello@nonnanest.com</a></strong> — we typically respond same day.</p>
         </div>
       </div>
     </section>
@@ -1398,7 +1307,7 @@
   </main>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
   // Active sidebar highlighting on scroll
   const sections = document.querySelectorAll('.guide-section[id]');
   const sidebarLinks = document.querySelectorAll('.guide-sidebar a');
@@ -1407,4 +1316,14 @@
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         sidebarLinks.forEach(link => link.classList.remove('active'));
-        const activeLink = document.querySelector(`.guide-sidebar a[href="
+        const activeLink = document.querySelector(`.guide-sidebar a[href="#${entry.target.id}"]`);
+        if (activeLink) activeLink.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -75% 0px' });
+
+  sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
