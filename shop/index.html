@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- PARTIAL:analytics-start -->
+<!-- OpenAI Ads Pixel (base + page_viewed + oppref) -->
+<script src="/js/oaiq.js"></script>
+<!-- PARTIAL:analytics-end -->
 <!-- Google Analytics (GA4) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-VXRF2PKBGP"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-VXRF2PKBGP");</script>
@@ -596,6 +600,100 @@ function closeMobileNav() {
 <!-- PARTIAL:footer-end -->
 
 
+<!-- ===== OpenAI Ads Pixel — /shop/ commerce events =====================
+     contents_viewed  fires here, on load of the shop page.
+     checkout_started fires from the Shopify Buy Button's openCheckout
+                      event, below — i.e. only on a real checkout hand-off.
+     order_created    cannot fire from this site: checkout is hosted by
+                      Shopify on another domain. It is installed as a
+                      Shopify Custom Pixel — see _partials/openai-ads/.
+     ===================================================================== -->
+<script>
+(function (w, d) {
+  "use strict";
+
+  // Single source of truth for the content identity sent on every commerce
+  // event, so contents_viewed / checkout_started / order_created all agree.
+  w.NN_PRODUCT = {
+    id: "sightaware",
+    name: "SightAware Baby Monitor",
+    listPriceCents: 32900,
+    currency: "USD"
+  };
+
+  /* ---------------- contents_viewed — /shop/ loaded ------------------ */
+  function contentsViewed() {
+    var p = w.NN_PRODUCT;
+    oaiq("measure", "contents_viewed", {
+      type: "contents",
+      amount: p.listPriceCents,
+      currency: p.currency,
+      contents: [{
+        id: p.id,
+        name: p.name,
+        content_type: "product",
+        quantity: 1,
+        amount: p.listPriceCents,
+        currency: p.currency
+      }]
+    });
+  }
+
+  if (d.readyState === "loading") {
+    d.addEventListener("DOMContentLoaded", contentsViewed, { once: true });
+  } else {
+    contentsViewed();
+  }
+
+  /* ---------------- checkout_started --------------------------------- *
+   * Called from the Buy Button's `openCheckout` user event, which the SDK
+   * fires at the moment it starts creating the Shopify checkout and
+   * redirects the customer — not on render, and not on an ordinary visit.
+   *
+   * Amount and quantity come off the live Buy Button component, so a
+   * quantity or price change is reflected without touching this code.
+   *
+   * Deduped over a short window: the checkout can open in a popup, leaving
+   * the customer on /shop/, so a double-click must not double-count while a
+   * genuine second attempt still registers.
+   * -------------------------------------------------------------------- */
+  var lastCheckoutStartedAt = 0;
+
+  w.nnCheckoutStarted = function (component) {
+    var now = Date.now();
+    if (now - lastCheckoutStartedAt < 2000) { return; }
+    lastCheckoutStartedAt = now;
+
+    var p = w.NN_PRODUCT;
+    var variant = component && component.selectedVariant;
+    var price = variant && variant.priceV2;
+
+    var quantity = (component && component.selectedQuantity) || 1;
+    var unitCents = p.listPriceCents;
+    var currency = p.currency;
+
+    if (price && price.amount != null) {
+      var parsed = Math.round(parseFloat(price.amount) * 100);
+      if (isFinite(parsed) && parsed > 0) { unitCents = parsed; }
+      if (price.currencyCode) { currency = price.currencyCode; }
+    }
+
+    oaiq("measure", "checkout_started", {
+      type: "contents",
+      amount: unitCents * quantity,
+      currency: currency,
+      contents: [{
+        id: p.id,
+        name: p.name,
+        content_type: "product",
+        quantity: quantity
+      }]
+    });
+  };
+
+})(window, document);
+</script>
+
 <!-- ===== SHOPIFY BUY BUTTON — renders both hero and bottom instances ===== -->
 <script type="text/javascript">
 /*<![CDATA[*/
@@ -622,6 +720,28 @@ function closeMobileNav() {
       domain: 'cdu13a-bk.myshopify.com',
       storefrontAccessToken: 'b4fd75c765d32381d5e6c827d77dba29',
     });
+
+    // OpenAI Ads: carry `oppref` into the Shopify-hosted checkout.
+    // Checkout lives on a Shopify domain, so the first-party `__oppref`
+    // cookie set on nonnanest.com is not readable there. Attaching it as a
+    // checkout custom attribute puts it on the Shopify order (as a note
+    // attribute), where the Custom Pixel / Conversions API can read it.
+    (function (checkout) {
+      if (!checkout || typeof checkout.create !== 'function') { return; }
+      var create = checkout.create.bind(checkout);
+      checkout.create = function (input) {
+        input = input || {};
+        try {
+          var oppref = window.nnAnalytics && window.nnAnalytics.getOppref();
+          if (oppref) {
+            input.customAttributes = (input.customAttributes || []).concat([
+              { key: 'oppref', value: String(oppref) }
+            ]);
+          }
+        } catch (e) { /* never block checkout on attribution */ }
+        return create(input);
+      };
+    })(client.checkout);
     ShopifyBuy.UI.onReady(client).then(function (ui) {
 
       // HERO button
@@ -658,6 +778,13 @@ function closeMobileNav() {
               }
             },
             "buttonDestination": "checkout",
+            "events": {
+              // Fired by the SDK the instant it begins creating the Shopify
+              // checkout and redirecting — a real checkout start.
+              "openCheckout": function (component) {
+                if (window.nnCheckoutStarted) { window.nnCheckoutStarted(component); }
+              }
+            },
             "contents": {
               "img": false,
               "title": false,
@@ -713,6 +840,13 @@ function closeMobileNav() {
               }
             },
             "buttonDestination": "checkout",
+            "events": {
+              // Fired by the SDK the instant it begins creating the Shopify
+              // checkout and redirecting — a real checkout start.
+              "openCheckout": function (component) {
+                if (window.nnCheckoutStarted) { window.nnCheckoutStarted(component); }
+              }
+            },
             "contents": {
               "img": false,
               "title": false,

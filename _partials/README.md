@@ -55,3 +55,9 @@ Do not paraphrase. Do not edit inline in pages. Edit here only.
 - Instagram: `nonnanest.baby`
 - Facebook: `nonnanest`
 - YouTube: `@nonnanest`
+
+## Analytics
+
+The OpenAI Ads Pixel head block is stamped separately by
+`_partials/sync_analytics.py` (all `*.html` in the repo, not just the `PAGES`
+list above). See `_partials/openai-ads/README.md`.
