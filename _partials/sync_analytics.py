@@ -16,6 +16,13 @@ the Pixel up automatically on the next run.
 The block is wrapped in PARTIAL:analytics-* markers; a re-run replaces
 whatever sits between them, so editing HEAD_BLOCK below and re-running is
 the way to change the snippet site-wide.
+
+On a page that has no markers yet the block goes in after the charset and
+viewport metas, not straight after <head>. The parser only scans the first
+1024 bytes for an encoding declaration, and this block plus the other head
+scripts is easily enough to push charset past that — which costs nothing
+while the host sends charset=utf-8, and mangles every non-ASCII character
+the moment something serves the page without it.
 """
 import re
 import sys
@@ -33,6 +40,24 @@ SKIP_DIRS = {".git", "_partials", "node_modules"}
 
 marked = re.compile(re.escape(START) + r".*?" + re.escape(END), re.DOTALL)
 head_open = re.compile(r"<head\b[^>]*>", re.IGNORECASE)
+# charset first, then an optional viewport. Anchored at the end of <head>
+# and tolerant of any whitespace between the tags, so it does not depend on
+# how the page happens to be line-broken.
+head_meta = re.compile(
+    r"\s*<meta[^>]*\bcharset=[^>]*>"
+    r"(?:\s*<meta[^>]*name=[\"\']viewport[\"\'][^>]*>)?",
+    re.IGNORECASE,
+)
+
+
+def insert_at(html: str, head_end: int) -> int:
+    """Where a fresh block goes: after the charset/viewport metas if present.
+
+    Keeps the encoding declaration inside the 1024 bytes a parser scans for
+    it, instead of pushing it past that with the script tags.
+    """
+    m = head_meta.match(html, head_end)
+    return m.end() if m else head_end
 
 
 def pages():
@@ -55,7 +80,8 @@ def stamp(path: Path, report: list) -> None:
         if not m:
             report.append(f"  ! {path.relative_to(REPO)} (no <head>, skipped)")
             return
-        html = html[: m.end()] + "\n" + block + html[m.end() :]
+        at = insert_at(html, m.end())
+        html = html[:at] + "\n" + block + html[at:]
 
     if html != orig:
         path.write_text(html)

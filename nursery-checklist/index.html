@@ -1,27 +1,27 @@
 <!doctype html>
 <html lang="en">
 <head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <!-- PARTIAL:analytics-start -->
 <!-- OpenAI Ads Pixel (base + page_viewed + oppref) -->
 <script src="/js/oaiq.js"></script>
 <!-- PARTIAL:analytics-end -->
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Nursery Safety Checklist — Pediatric Guidance for Parents | Nonnanest</title>
-<meta name="description" content="A free, interactive nursery safety checklist grounded in AAP, CPSC, and EPA guidance. 8 sections, 6 minutes, printable summary. No signup." />
-<link rel="canonical" href="https://nonnanest.com/nursery-checklist" />
+<title>Nursery Safety Checklist for New Parents | Nonnanest</title>
+<meta name="description" content="Use this practical nursery safety checklist to review sleep space, crib placement, monitor cords, room conditions, sound, lighting, and smoke/CO safety." />
+<link rel="canonical" href="https://www.nonnanest.com/nursery-checklist/" />
 
 <!-- Open Graph -->
-<meta property="og:title" content="Nursery Safety Check — Nonnanest" />
-<meta property="og:description" content="The Nonnanest way to set up a calm nursery. 8 short sections grounded in pediatric and safety guidance. 6 minutes. A printable summary at the end." />
+<meta property="og:title" content="Nursery Safety Checklist for New Parents — Nonnanest" />
+<meta property="og:description" content="Use this practical nursery safety checklist to review sleep space, crib placement, monitor cords, room conditions, sound, lighting, and smoke/CO safety." />
 <meta property="og:type" content="website" />
-<meta property="og:url" content="https://nonnanest.com/nursery-checklist" />
+<meta property="og:url" content="https://www.nonnanest.com/nursery-checklist/" />
 <meta property="og:site_name" content="Nonnanest" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Nursery Safety Check — Nonnanest" />
-<meta name="twitter:description" content="A pediatric-grounded nursery safety check. 8 sections, 6 minutes, printable summary." />
+<meta name="twitter:title" content="Nursery Safety Checklist for New Parents — Nonnanest" />
+<meta name="twitter:description" content="Use this practical nursery safety checklist to review sleep space, crib placement, monitor cords, room conditions, sound, lighting, and smoke/CO safety." />
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -88,8 +88,19 @@ body {
 }
 .skip-link:focus { top: 8px; }
 
-/* hide the static crawlable mirror from sighted users */
-#crawlable { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+/* ---------- static page header + crawlable checklist (always visible, no JS) ---------- */
+.page-intro { padding: 88px 0 8px; }
+.page-intro h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 5.2vw, 54px); line-height: 1.08; letter-spacing: -0.01em; color: var(--deep-teal); margin: 0 0 20px; text-wrap: balance; }
+.page-intro .lede { font-size: 18px; line-height: 1.6; color: var(--charcoal-70); margin: 0 0 14px; max-width: 62ch; }
+.page-intro .jump { display: inline-block; margin-top: 10px; font-size: 14.5px; font-weight: 500; color: var(--soft-teal); border-bottom: 1px solid var(--charcoal-20); padding-bottom: 2px; }
+.page-intro .jump:hover { color: var(--deep-teal); }
+.static-checklist { padding: 40px 0 8px; }
+.static-checklist h2 { font-family: var(--serif); font-weight: 400; font-size: 24px; line-height: 1.2; color: var(--deep-teal); margin: 34px 0 10px; }
+.static-checklist h2:first-of-type { margin-top: 0; }
+.static-checklist ul { margin: 0; padding-left: 22px; }
+.static-checklist li { font-size: 15.5px; line-height: 1.65; color: var(--charcoal-70); margin-bottom: 8px; }
+.static-checklist .sources { font-size: 13px; line-height: 1.6; color: var(--charcoal-50); margin-top: 34px; padding-top: 18px; border-top: 1px solid var(--charcoal-10); }
+.static-checklist .sources a { color: var(--soft-teal); }
 
 /* ---------- layout ---------- */
 .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
@@ -134,7 +145,7 @@ body {
   font-weight: 500;
   margin: 0 0 18px;
 }
-.hero h1 {
+.hero h2 {
   font-family: var(--serif);
   font-weight: 400;
   font-size: clamp(36px, 5.5vw, 58px);
@@ -644,9 +655,9 @@ body {
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
-  "name": "Nursery Safety Check",
+  "name": "Nursery Safety Checklist for New Parents",
   "about": "Pediatric and safety guidance for infant nursery environments",
-  "publisher": { "@type": "Organization", "name": "Nonnanest", "url": "https://nonnanest.com" },
+  "publisher": { "@type": "Organization", "name": "Nonnanest", "url": "https://www.nonnanest.com/" },
   "mainEntity": [
     {
       "@type": "Question",
@@ -896,11 +907,11 @@ main#main { padding-top: 72px; }
   <a href="/" class="wordmark">Nonnanest™</a>
   <ul class="nav-links">
     <li><a href="/#how-it-works">How It Works</a></li>
-    <li><a href="/wellness">Wellness</a></li>
-    <li><a href="/privacy">Privacy</a></li>
-    <li><a href="/blog">Blog</a></li>
-    <li><a href="/press">Press</a></li>
-    <li><a href="/story">Our Story</a></li>
+    <li><a href="/wellness/">Wellness</a></li>
+    <li><a href="/privacy/">Privacy</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/press/">Press</a></li>
+    <li><a href="/story/">Our Story</a></li>
     <li><a href="/shop/" class="nav-cta">Order — $329</a></li>
   </ul>
   <button class="hamburger" onclick="this.classList.toggle('active');document.getElementById('mobileNav').classList.toggle('open');" aria-label="Toggle menu">
@@ -913,11 +924,11 @@ main#main { padding-top: 72px; }
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
   </button>
   <a href="/#how-it-works" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">How It Works</a>
-  <a href="/wellness" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Wellness</a>
-  <a href="/privacy" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Privacy</a>
-  <a href="/blog" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Blog</a>
-  <a href="/press" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Press</a>
-  <a href="/story" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Our Story</a>
+  <a href="/wellness/" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Wellness</a>
+  <a href="/privacy/" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Privacy</a>
+  <a href="/blog/" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Blog</a>
+  <a href="/press/" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Press</a>
+  <a href="/story/" onclick="document.querySelector('.hamburger').classList.remove('active');document.getElementById('mobileNav').classList.remove('open');">Our Story</a>
   <a href="/shop/" class="mobile-nav-cta">Order — $329</a>
 </div>
 <!-- PARTIAL:nav-end -->
@@ -929,13 +940,92 @@ function closeMobileNav() {
 }
 </script>
 
+<header class="page-intro">
+  <div class="wrap narrow">
+    <p class="eyebrow">For new parents</p>
+    <h1>Nursery Safety Checklist for New Parents</h1>
+    <p class="lede">A practical walk through the nursery: sleep space, crib placement, monitor cords, room conditions, sound, lighting, and smoke and CO safety. Read the summary below, or run the interactive check for guidance tailored to your baby&rsquo;s age.</p>
+    <a class="jump" href="#nursery-safety-check">Skip to the interactive check &darr;</a>
+  </div>
+</header>
+
+<section class="static-checklist">
+  <div class="wrap narrow">
+
+    <h2>Room temperature</h2>
+    <ul>
+      <li>Many pediatric guidelines suggest a comfortable, cool nursery rather than a specific target number; several pediatric institutions point to roughly 68&ndash;72&deg;F as a comfortable range.</li>
+      <li>The American Academy of Pediatrics does not prescribe a temperature. Its 2022 guidance is to dress your baby in no more than one layer more than an adult would wear comfortably in the same room.</li>
+      <li>Put a thermometer at crib height, away from vents and windows, rather than trusting a hallway thermostat.</li>
+      <li>Check the back of your baby&rsquo;s neck rather than hands or feet, which normally run cooler.</li>
+    </ul>
+
+    <h2>Humidity</h2>
+    <ul>
+      <li>The EPA recommends keeping indoor humidity between 30 and 50 percent.</li>
+      <li>Below that range can dry airways; above 50 percent encourages mold and dust mites.</li>
+      <li>The AAP recommends cool-mist humidifiers over warm-mist units in infant rooms, because warm-mist units carry a burn risk.</li>
+      <li>Use distilled water and clean the humidifier weekly.</li>
+    </ul>
+
+    <h2>Airflow and crib placement</h2>
+    <ul>
+      <li>Don&rsquo;t place the crib directly under or beside an HVAC vent. Direct airflow creates uneven temperature exposure and skews readings from any nearby thermostat or sensor.</li>
+      <li>Keep the crib away from windows. The AAP recommends arm&rsquo;s-length distance from furniture and windows.</li>
+      <li>The CPSC documents window blind cords as a strangulation hazard &mdash; keep them tied up and well out of reach of the crib.</li>
+    </ul>
+
+    <h2>Monitor and cord safety</h2>
+    <ul>
+      <li>The CPSC recommends keeping baby monitors and their power cords at least 3 feet away from every edge of the crib.</li>
+      <li>Never mount a monitor or camera on a crib rail.</li>
+      <li>Route cords along a wall and secure them, so no slack hangs within reach.</li>
+      <li>Re-check placement as your baby starts pulling to stand &mdash; their reach grows faster than you expect.</li>
+    </ul>
+
+    <h2>Crib setup</h2>
+    <ul>
+      <li>Follow the ABCs of safe sleep: baby sleeps <strong>A</strong>lone, on their <strong>B</strong>ack, in a <strong>C</strong>rib.</li>
+      <li>Use a firm, flat mattress with a fitted sheet only &mdash; no blankets, pillows, stuffed animals, bumpers, positioners, or wedges for babies under 12 months.</li>
+      <li>Room-share without bed-sharing for at least the first 6 months, ideally the first year.</li>
+      <li>Confirm the crib meets current CPSC standards and that hardware is tight, with no drop-side rails.</li>
+    </ul>
+
+    <h2>Lighting</h2>
+    <ul>
+      <li>Dark rooms support infant sleep. Blackout curtains help most in summer and at early bedtimes.</li>
+      <li>If you use a nightlight, red or amber light is generally preferred over blue or white.</li>
+      <li>Keep bright, blue-toned screens out of the room in the hour before bed.</li>
+    </ul>
+
+    <h2>Sound</h2>
+    <ul>
+      <li>The AAP&rsquo;s 2023 noise policy recommends placing sound machines as far from your baby as possible and keeping the volume as low as possible.</li>
+      <li>Pediatric research referenced in that policy points to at least 7 feet of distance and roughly 50 decibels &mdash; about the volume of a quiet shower.</li>
+      <li>A simple test from the AAP: if you&rsquo;d raise your voice to talk to someone an arm&rsquo;s length away, it&rsquo;s too loud.</li>
+      <li>Don&rsquo;t place a sound machine on the crib rail or inside the crib.</li>
+    </ul>
+
+    <h2>Smoke and CO safety</h2>
+    <ul>
+      <li>Keep a working smoke detector within hearing distance of the nursery. Test it monthly.</li>
+      <li>Replace batteries at least once a year, and replace the detector itself per the manufacturer&rsquo;s stated lifespan.</li>
+      <li>If the home has gas appliances, a fireplace, or an attached garage, add a carbon monoxide detector on every floor and near sleep areas.</li>
+      <li>Combination smoke and CO units can replace an existing smoke detector.</li>
+    </ul>
+
+    <p class="sources">Sources: <a href="https://www.healthychildren.org/English/ages-stages/baby/sleep/Pages/Sleep-Position-Why-Back-is-Best.aspx" rel="nofollow noopener" target="_blank">American Academy of Pediatrics (HealthyChildren.org)</a>, AAP 2022 Sleep-Related Infant Deaths policy, AAP 2023 policy on preventing excessive noise exposure, <a href="https://www.cpsc.gov/Newsroom/News-Releases/2016/CPSC-Warns-Parents-Baby-Monitor-Cords-Can-Strangle-Infants" rel="nofollow noopener" target="_blank">U.S. Consumer Product Safety Commission</a> on monitor cord and window blind cord hazards, and <a href="https://www.epa.gov/indoor-air-quality-iaq/care-your-air-guide-indoor-air-quality" rel="nofollow noopener" target="_blank">EPA Care for Your Air</a> on indoor humidity. This checklist is general information, not medical advice &mdash; for questions about your own baby, ask your pediatrician.</p>
+
+  </div>
+</section>
+
 <main id="main" x-data="checklist()" x-init="init()" x-cloak>
 
   <!-- ============ ENTRY / HERO ============ -->
-  <section class="hero" x-show="step === 'intro'">
+  <section class="hero" id="nursery-safety-check" x-show="step === 'intro'">
     <div class="wrap narrow">
-      <p class="eyebrow">For new parents</p>
-      <h1>Nursery Safety Check</h1>
+      <p class="eyebrow">Interactive tool</p>
+      <h2>Nursery Safety Check</h2>
       <p class="lede" style="font-style: italic; color: var(--deep-teal);">The Nonnanest way to set up a calm nursery.</p>
       <p class="lede">Eight short sections grounded in pediatric and safety guidance. Five to six minutes. A printable summary at the end.</p>
       <div class="cta-row">
@@ -1210,19 +1300,19 @@ function closeMobileNav() {
       <section class="related" aria-labelledby="related-h">
         <h3 id="related-h">Related reading</h3>
         <div class="related-grid">
-          <a class="related-card" href="https://nonnanest.com/blog/safe-sleep-environment">
-            <p class="related-kicker">Safe sleep</p>
-            <p class="related-title">The 2022 AAP safe sleep guidance, translated for real bedrooms</p>
+          <a class="related-card" href="https://www.nonnanest.com/blog/baby-monitor-basics-5-tips-for-new-parents/">
+            <p class="related-kicker">Monitors</p>
+            <p class="related-title">Baby Monitor Basics: 5 Tips for New Parents</p>
             <p class="related-meta">Nonnanest · Blog</p>
           </a>
-          <a class="related-card" href="https://nonnanest.com/blog/nursery-temperature">
+          <a class="related-card" href="https://www.nonnanest.com/blog/keeping-your-baby-comfortable-during-colder-months/">
             <p class="related-kicker">Environment</p>
-            <p class="related-title">Why pediatric institutions cite 68–72°F (and what the AAP actually says)</p>
+            <p class="related-title">Keeping Your Baby Comfortable During Colder Months</p>
             <p class="related-meta">Nonnanest · Blog</p>
           </a>
-          <a class="related-card" href="https://nonnanest.com/blog/monitor-cord-safety">
-            <p class="related-kicker">Safety</p>
-            <p class="related-title">The 3-foot rule: why CPSC places baby monitors this far from cribs</p>
+          <a class="related-card" href="https://www.nonnanest.com/blog/non-wearable-baby-monitor-guide/">
+            <p class="related-kicker">Contactless</p>
+            <p class="related-title">Non-Wearable Baby Monitors: A Guide for Parents Who Don&rsquo;t Want a Sock or Band</p>
             <p class="related-meta">Nonnanest · Blog</p>
           </a>
         </div>
@@ -1252,21 +1342,21 @@ function closeMobileNav() {
     <div class="footer-col">
       <h4>Shop</h4>
       <a href="/shop/">SightAware™</a>
-      <a href="/shipping">Shipping</a>
-      <a href="/returns">Returns</a>
+      <a href="/shipping/">Shipping</a>
+      <a href="/returns/">Returns</a>
     </div>
     <div class="footer-col">
       <h4>Learn</h4>
-      <a href="/blog">Blog</a>
-      <a href="/wellness">Wellness awareness</a>
-      <a href="/privacy">Privacy by design</a>
-      <a href="/nursery-checklist">Nursery Checklist</a>
+      <a href="/blog/">Blog</a>
+      <a href="/wellness/">Wellness awareness</a>
+      <a href="/privacy/">Privacy by design</a>
+      <a href="/nursery-checklist/">Nursery Checklist</a>
     </div>
     <div class="footer-col">
       <h4>Company</h4>
-      <a href="/story">Our Story</a>
-      <a href="/press">Press</a>
-      <a href="/support">Support</a>
+      <a href="/story/">Our Story</a>
+      <a href="/press/">Press</a>
+      <a href="/support/">Support</a>
       <a href="mailto:hello@nonnanest.com">Contact</a>
     </div>
   </div>
@@ -1274,8 +1364,8 @@ function closeMobileNav() {
   <div class="footer-bottom">
     <p>© 2026 Nonnanest, Inc. · Charleston, SC · Patent pending · NAPPA 2026 Award Winner</p>
     <div class="footer-bottom-links">
-      <a href="/privacy-policy">Privacy Policy</a>
-      <a href="/terms">Terms of Service</a>
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/terms/">Terms of Service</a>
     </div>
   </div>
 
@@ -1286,34 +1376,6 @@ function closeMobileNav() {
 <!-- PARTIAL:footer-end -->
 </main>
 
-<!-- Static, crawlable content mirror for SEO/LLM extraction. -->
-<div id="crawlable" aria-hidden="true">
-  <h2>Pediatric guidance reference</h2>
-
-  <h3>Room temperature</h3>
-  <p>Pediatric institutions including Cleveland Clinic and Children's Health (Children's Medical Center Dallas) point to a comfortable range of 68 to 72 degrees Fahrenheit for infant sleep. The American Academy of Pediatrics 2022 policy does not prescribe a specific number — it recommends dressing baby in no more than one layer more than an adult would wear in the same environment. Place a thermometer at crib height, away from vents and windows. Source: Cleveland Clinic, Children's Health, AAP 2022 Updated Recommendations for a Safe Infant Sleeping Environment.</p>
-
-  <h3>Humidity</h3>
-  <p>The U.S. Environmental Protection Agency recommends keeping indoor humidity between 30 and 50 percent. Use a cool-mist humidifier per AAP guidance, distilled water, cleaned weekly. Source: EPA Care for Your Air guide, American Academy of Pediatrics, Boston Children's Hospital Pediatric Environmental Health Center.</p>
-
-  <h3>Airflow and crib placement</h3>
-  <p>Avoid placing the crib directly under or beside an HVAC vent. Direct airflow creates uneven temperature exposure and skews any temperature reading from a thermostat or sensor. The AAP flags overheating as a SIDS risk factor. Keep the crib away from windows and blind cords. Source: AAP 2022 Sleep-Related Infant Deaths policy on overheating, AAP HealthyChildren.org on crib placement, CPSC window blind cord guidance.</p>
-
-  <h3>Baby monitor placement</h3>
-  <p>The U.S. Consumer Product Safety Commission recommends keeping baby monitors and their power cords at least 3 feet away from every edge of the crib. CPSC has documented at least 7 infant strangulation deaths and 3 near-strangulations from monitor cords placed too close to cribs. Never mount on a crib rail. Source: U.S. Consumer Product Safety Commission, AAP News.</p>
-
-  <h3>Crib setup (ABCs of safe sleep)</h3>
-  <p>Baby sleeps Alone, on their Back, in a Crib. Firm flat mattress, fitted sheet only for babies under 12 months. No blankets, pillows, stuffed animals, bumpers, positioners, or wedges. Room-share without bed-sharing for the first 6 to 12 months. Source: AAP 2022 safe sleep recommendations, AAP HealthyChildren.org parent guide on safe sleep.</p>
-
-  <h3>Lighting</h3>
-  <p>Pediatric sleep specialists generally recommend dark rooms for infant sleep. If a nightlight is used, red or amber is preferred over blue or white. Source: Harvard Health Publishing on circadian rhythms and blue light exposure, American Academy of Pediatrics general sleep environment guidance, pediatric sleep specialist consensus.</p>
-
-  <h3>Sound environment</h3>
-  <p>The AAP 2023 noise exposure policy recommends locating sound machines as far from baby as possible and keeping volume as low as possible. Pediatric research informing the policy points to at least 7 feet of distance and roughly 50 decibels. The AAP gives a simple test: if the volume is too loud for an adult, it is too loud for a child. Source: AAP 2023 Policy Statement Preventing Excessive Noise Exposure in Infants, Children, and Adolescents.</p>
-
-  <h3>Air quality and safety</h3>
-  <p>Working smoke detector within hearing distance of the nursery, tested monthly, batteries replaced at least annually. If the home has gas appliances, also a CO detector on every floor and near sleep areas. Combo smoke and CO units replace existing smoke detectors. Source: U.S. Consumer Product Safety Commission, Centers for Disease Control and Prevention, National Fire Protection Association.</p>
-</div>
 <script>
 /* =========================================================
    Nursery Safety Check — logic
@@ -1879,7 +1941,7 @@ function checklist() {
 
     shareTool() {
       // Share the tool URL only — NEVER the parent's personalized results.
-      const url = 'https://nonnanest.com/nursery-checklist';
+      const url = 'https://www.nonnanest.com/nursery-checklist/';
       const text = "Just checked our nursery against pediatric guidance with this free tool from Nonnanest — worth doing if you're prepping baby's room.";
       const shareData = { title: 'Nursery Safety Check — Nonnanest', text, url };
 
@@ -1984,7 +2046,7 @@ function checklist() {
       lines.push('---');
       lines.push('This checklist reflects publicly available pediatric and safety guidance.');
       lines.push('Nonnanest is a wellness device, not a medical device.');
-      lines.push('https://nonnanest.com/nursery-checklist');
+      lines.push('https://www.nonnanest.com/nursery-checklist/');
       return lines.join('\n');
     },
 

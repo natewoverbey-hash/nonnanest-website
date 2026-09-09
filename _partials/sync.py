@@ -12,6 +12,13 @@ Usage:
 Idempotent — safe to run repeatedly.
 Bootstraps automatically: if a page has no PARTIAL markers, this looks
 for an existing <nav>/<footer> and wraps it, then replaces content.
+
+After stamping, this also audits rel=canonical and og:url on every page
+in the repo — not just PAGES — and exits non-zero if any are wrong. New
+pages here are made by copying an existing one, so the failure this
+catches is a copy whose canonical still names the page it was copied
+from, which tells Google the new page is a duplicate of the old one.
+Pass --skip-canonical-check to stamp without auditing.
 """
 import re
 import sys
@@ -46,6 +53,14 @@ PAGES = [
     "wellness/index.html",
     "privacy/index.html",
 ]
+
+SITE = "https://www.nonnanest.com"
+
+# Pages that deliberately canonicalise to a DIFFERENT url than their own.
+# Keyed by page path, valued with the intended canonical. Empty today —
+# every page is its own canonical. Add here rather than loosening the
+# check, so an intentional cross-canonical stays visible in review.
+CANONICAL_EXCEPTIONS: dict[str, str] = {}
 
 NAV_START = "<!-- PARTIAL:nav-start -->"
 NAV_END = "<!-- PARTIAL:nav-end -->"
@@ -116,12 +131,75 @@ def stamp_page(page_path: Path, report: list) -> None:
         report.append(f"  = {page_path.relative_to(REPO)} (unchanged)")
 
 
+
+def expected_canonical(page_path: Path) -> str:
+    """The url a page should name: www host, real directory, trailing slash."""
+    rel = page_path.relative_to(REPO).parent.as_posix()
+    return SITE + "/" if rel == "." else f"{SITE}/{rel}/"
+
+
+def check_canonicals() -> list:
+    """Audit rel=canonical and og:url across every page. Returns problems."""
+    canonical_re = re.compile(r'rel="canonical"\s+href="([^"]+)"')
+    ogurl_re = re.compile(r'property="og:url"\s+content="([^"]+)"')
+    noindex_re = re.compile(r'name="robots"\s+content="[^"]*noindex')
+
+    problems = []
+    for page_path in sorted(REPO.rglob("index.html")):
+        if ".git" in page_path.parts:
+            continue
+        rel = page_path.relative_to(REPO).as_posix()
+        html = page_path.read_text()
+
+        if noindex_re.search(html):
+            continue  # noindex: a canonical would say nothing
+
+        want = CANONICAL_EXCEPTIONS.get(rel) or expected_canonical(page_path)
+        found = canonical_re.findall(html)
+
+        if not found:
+            problems.append(
+                f"{rel}: no rel=canonical\n"
+                f'    add: <link rel="canonical" href="{want}">'
+            )
+        elif len(found) > 1:
+            problems.append(f"{rel}: {len(found)} canonical tags, expected 1 — {found}")
+        elif found[0] != want:
+            note = " (copied from another page?)" if found[0].startswith(SITE) else ""
+            problems.append(
+                f"{rel}: canonical points elsewhere{note}\n"
+                f"    found:    {found[0]}\n"
+                f"    expected: {want}"
+            )
+
+        for og in ogurl_re.findall(html):
+            if og != want:
+                problems.append(
+                    f"{rel}: og:url disagrees with the canonical\n"
+                    f"    found:    {og}\n"
+                    f"    expected: {want}"
+                )
+    return problems
+
+
 def main() -> int:
     print(f"Syncing partials across {len(PAGES)} pages...")
     report = []
     for page in PAGES:
         stamp_page(REPO / page, report)
     print("\n".join(report))
+
+    if "--skip-canonical-check" in sys.argv:
+        print("\nCanonical check skipped.")
+        return 0
+
+    problems = check_canonicals()
+    if problems:
+        print(f"\n✗ Canonical check failed ({len(problems)} problem(s)):")
+        for problem in problems:
+            print(f"  {problem}")
+        return 1
+    print("\n✓ Canonical check passed on every indexable page.")
     return 0
 
 
